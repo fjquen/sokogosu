@@ -1,7 +1,6 @@
 require 'gosu'
 require './player.rb'
 require './key.rb'
-require './cube.rb'
 
 class Main < Gosu::Window
     
@@ -17,7 +16,6 @@ class Main < Gosu::Window
         if Gosu.button_down? Gosu::KB_RIGHT or Gosu::button_down? Gosu::GP_RIGHT
             @player.move_right
             @player.right_collision(@key)
-            @key.collisions
             @player.num_img_pos = 1
         elsif Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
             @player.move_left

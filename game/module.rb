@@ -83,16 +83,4 @@ module Module_move
             end
         end
     end
-
-    def collision?(col)
-        puts @cube_position['x']
-        if @cube_position['x'] >= col['x'] and 
-            @cube_position['x'] < col['x'] + 55 and 
-            @cube_position['y'] >= col['y'] and 
-            @cube_position['y'] < col['y'] + 55
-               return true;
-           else
-               return false;
-        end
-    end
 end

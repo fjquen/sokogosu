@@ -1,6 +1,5 @@
 require 'gosu'
 require './module.rb'
-require './cube.rb'
 
 class Player
    include Module_move
@@ -12,7 +11,6 @@ class Player
         @player = Gosu::Image.new(@img_position_player[@num_img_pos])
         @x=@y= 0.0
         @x_speed= @y_speed =7.0
-        @cube = Cube.new
     end
 
     def draw

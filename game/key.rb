@@ -11,12 +11,6 @@ class Key
         @cube = Cube.new
     end
 
-    def collisions
-        if @keys.any? {|col| @cube.collision?(col)}
-            puts 'A collision happened!'
-        end
-    end
-
     def draw
         @keys.each do |key|
             @keys_img = Gosu::Image.new(key['img'])
