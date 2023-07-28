@@ -9,7 +9,6 @@ class Main < Gosu::Window
         self.caption = "sokoban"
         @player = Player.new
         @key = Key.new
-        @cube = Cube.new
     end
     
     def update

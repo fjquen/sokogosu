@@ -31,12 +31,11 @@ module Module_move
         end
     end
 
-    def right_collision(key_class,cube_classe)
+    def right_collision(key_class)
         key_class.keys.each do |key| 
             if Gosu.distance(key['x'],key['y'], @x, @y) < 55
                 if key['x'] < 570
                     key['x'] += 7
-                    cube_classe.cube_position['x'] += 7
                 else
                     @x = key['x'] - 55
                     return key['x']

@@ -1,6 +1,6 @@
 require 'gosu'
 require './module.rb'
-require './cube.rb'
+
 
 class Key
     include Module_move
@@ -8,7 +8,6 @@ class Key
 
     def initialize
         @keys = [{'img'=>'media/crate_42.png','x'=>170,'y'=>300},{'img'=>'media/crate_43.png','x'=>69,'y'=>40},{'img'=>'media/crate_44.png','x'=>49,'y'=>320},{'img'=>'media/crate_45.png','x'=>149,'y'=>220}]
-        @cube = Cube.new
     end
 
     def draw
