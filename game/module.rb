@@ -83,7 +83,16 @@ module Module_move
             end
         end
     end
-    def test
-        puts @x_test
+    def test(key_class)
+        key_class.keys.each do |key|
+            if @x_test >= key['x'] or 
+                @x_test < key['x'] + 55 or 
+                @y_test >= key['x'] or
+                @y_test < key['x'] + 55
+                   puts 'u';
+            else
+                   puts 'y';
+            end
+        end
     end
 end
