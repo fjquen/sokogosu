@@ -18,13 +18,14 @@ class Key
     @boxes = []
     @keys.each do |key|
       @boxes << Box.new(Gosu::Image.new(key['img']), key['x'], key['y'])
-      @keys_img = Gosu::Image.new(key['img'])
     end
+
+
   end
 
   def draw
-    @keys.each do |key|
-      @keys_img.draw(key['x'], key['y'], 0)
+    @boxes.each do |key|
+      key.img.draw(key.x, key.y, 0)
     end
   end
 end
