@@ -11,10 +11,10 @@ class Key
   Box = Struct.new(:img, :x, :y)
 
   def initialize
-    @keys = [{ 'img' => 'media/crate_42.png', 'x' => 170, 'y' => 300 },
-             { 'img' => 'media/crate_43.png', 'x' => 69, 'y' => 40 },
-             { 'img' => 'media/crate_44.png', 'x' => 49, 'y' => 320 },
-             { 'img' => 'media/crate_45.png', 'x' => 149, 'y' => 220 }]
+    @keys = [{ 'img' => 'media/crate_42.png', 'x' => 70, 'y' => 0 },
+             { 'img' => 'media/crate_43.png', 'x' => 570, 'y' => 415 },
+             { 'img' => 'media/crate_44.png', 'x' => 570, 'y' => 0 },
+             { 'img' => 'media/crate_45.png', 'x' => 70, 'y' => 415 }]
     @boxes = []
     @keys.each do |key|
       @boxes << Box.new(Gosu::Image.new(key['img']), key['x'], key['y'])
