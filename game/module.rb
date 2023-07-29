@@ -3,25 +3,21 @@
 module Module_move
   def move_right
     return @x unless @x < 570
-
     @x += @x_speed
   end
 
   def move_left
     return @x unless @x.positive?
-
     @x -= @x_speed
   end
 
   def move_top
     return @y unless @y.positive?
-
     @y -= @y_speed
   end
 
   def move_down
     return @y unless @y < 415
-
     @y += @y_speed
   end
 
@@ -48,7 +44,7 @@ module Module_move
   end
 
   def left_collision(key_class)
-    key_class.each_key do |key|
+    key_class.each do |key|
       if Gosu.distance(key['x'], key['y'], @x, @y) < 55
         if (key['x']).positive?
           key['x'] -= 7
@@ -61,7 +57,7 @@ module Module_move
   end
 
   def up_collision(key_class)
-    key_class.each_key do |key|
+    key_class.each do |key|
       if Gosu.distance(key['x'], key['y'], @x, @y) < 55
         if (key['y']).positive?
           key['y'] -= 7
@@ -74,7 +70,7 @@ module Module_move
   end
 
   def down_collision(key_class)
-    key_class.each_key do |key|
+    key_class.each do |key|
       if Gosu.distance(key['x'], key['y'], @x, @y) < 55
         if key['y'] < 415
           key['y'] += 7

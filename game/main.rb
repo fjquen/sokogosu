@@ -20,15 +20,15 @@ class Main < Gosu::Window
       @player.num_img_pos = 1
     elsif Gosu.button_down?(Gosu::KB_LEFT) || Gosu.button_down?(Gosu::GP_LEFT)
       @player.move_left
-      @player.left_collision(@key)
+      @player.left_collision(@key.keys)
       @player.num_img_pos = 2
     elsif Gosu.button_down?(Gosu::KB_UP) || Gosu.button_down?(Gosu::GP_UP)
       @player.move_top
-      @player.up_collision(@key)
+      @player.up_collision(@key.keys)
       @player.num_img_pos = 3
     elsif Gosu.button_down?(Gosu::KB_DOWN) || Gosu.button_down?(Gosu::GP_DOWN)
       @player.move_down
-      @player.down_collision(@key)
+      @player.down_collision(@key.keys)
       @player.num_img_pos = 0
     else
       @player.num_img_pos = 0
