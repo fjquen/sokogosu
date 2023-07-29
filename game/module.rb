@@ -1,98 +1,88 @@
+# frozen_string_literal: true
+
 module Module_move
-    def move_right
-        if @x < 570
-            @x += @x_speed
+  def move_right
+    return @x unless @x < 570
+
+    @x += @x_speed
+  end
+
+  def move_left
+    return @x unless @x.positive?
+
+    @x -= @x_speed
+  end
+
+  def move_top
+    return @y unless @y.positive?
+
+    @y -= @y_speed
+  end
+
+  def move_down
+    return @y unless @y < 415
+
+    @y += @y_speed
+  end
+
+  def right_collision_player(key_class)
+    key_class.each do |key|
+      if Gosu.distance(key['x'], key['y'], @x, @y) < 55
+        if key['x'] < 570
+          key['x'] += 7
+          @x_test = key['x']
         else
-            return @x
+          @x = key['x'] - 55
+          return key['x']
         end
+      end
     end
+  end
 
-    def move_left
-        if @x > 0
-            @x -= @x_speed
+  def right_collision_box(key_class, box_class)
+    key_class.each do |_key|
+      box_class.each do |box|
+        puts Gosu.distance(@x_test, @y_test, box.x, box.y) < 55
+      end
+    end
+  end
+
+  def left_collision(key_class)
+    key_class.each_key do |key|
+      if Gosu.distance(key['x'], key['y'], @x, @y) < 55
+        if (key['x']).positive?
+          key['x'] -= 7
         else
-            return @x
+          @x = key['x'] + 55
+          return key['x']
         end
+      end
     end
+  end
 
-    def move_top
-        if @y > 0
-            @y -= @y_speed
+  def up_collision(key_class)
+    key_class.each_key do |key|
+      if Gosu.distance(key['x'], key['y'], @x, @y) < 55
+        if (key['y']).positive?
+          key['y'] -= 7
         else
-            return @y
+          @y = key['y'] + 55
+          return key['y']
         end
+      end
     end
+  end
 
-    def move_down
-        if @y < 415
-            @y += @y_speed
+  def down_collision(key_class)
+    key_class.each_key do |key|
+      if Gosu.distance(key['x'], key['y'], @x, @y) < 55
+        if key['y'] < 415
+          key['y'] += 7
         else
-            return @y
+          @y = key['y'] - 55
+          return key['y']
         end
+      end
     end
-
-    def right_collision(key_class)
-        key_class.keys.each do |key| 
-            if Gosu.distance(key['x'],key['y'], @x, @y) < 55
-                if key['x'] < 570
-                    key['x'] += 7
-                    @x_test = key['x']
-                else
-                    @x = key['x'] - 55
-                    return key['x']
-                end
-            end
-        end
-    end
-    
-    def left_collision(key_class)
-        key_class.keys.each do |key|
-            if Gosu.distance(key['x'],key['y'], @x, @y) < 55
-                if key['x'] > 0
-                   key['x'] -= 7
-                else
-                  @x = key['x'] + 55
-                  return key['x']
-                end
-            end
-        end
-    end
-
-    def up_collision(key_class)
-        key_class.keys.each do |key|
-            if Gosu.distance(key['x'],key['y'], @x, @y) < 55
-                if key['y'] > 0
-                    key['y'] -= 7
-                else
-                    @y = key['y'] + 55
-                    return key['y']
-                end
-            end
-        end
-    end
-    
-    def down_collision(key_class)
-        key_class.keys.each do |key|
-            if Gosu.distance(key['x'],key['y'], @x, @y) < 55
-                if key['y'] < 415
-                   key['y'] += 7
-                else
-                  @y = key['y'] - 55
-                  return key['y']
-                end
-            end
-        end
-    end
-    def test(key_class)
-        key_class.keys.each do |key|
-            if @x_test >= key['x'] or 
-                @x_test < key['x'] + 55 or 
-                @y_test >= key['x'] or
-                @y_test < key['x'] + 55
-                   puts 'u';
-            else
-                   puts 'y';
-            end
-        end
-    end
+  end
 end
