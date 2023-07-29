@@ -16,6 +16,7 @@ class Key
              { 'img' => 'media/crate_44.png', 'x' => 49, 'y' => 320 },
              { 'img' => 'media/crate_45.png', 'x' => 149, 'y' => 220 }]
     @boxes = []
+    @keys.length.times { |i|  @keys_img = Gosu::Image.new(@keys[i]['img']) }
     @keys.each do |key|
       @boxes << Box.new(Gosu::Image.new(key['img']), key['x'], key['y'])
     end
@@ -23,7 +24,6 @@ class Key
 
   def draw
     @keys.each do |key|
-      @keys_img = Gosu::Image.new(key['img'])
       @keys_img.draw(key['x'], key['y'], 0)
     end
   end

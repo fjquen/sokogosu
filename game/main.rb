@@ -16,7 +16,6 @@ class Main < Gosu::Window
     if Gosu.button_down?(Gosu::KB_RIGHT) || Gosu.button_down?(Gosu::GP_RIGHT)
       @player.move_right
       @player.right_collision_player(@key.keys)
-      @player.right_collision_box(@key.keys, @key.boxes)
       @player.num_img_pos = 1
     elsif Gosu.button_down?(Gosu::KB_LEFT) || Gosu.button_down?(Gosu::GP_LEFT)
       @player.move_left
