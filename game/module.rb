@@ -35,12 +35,12 @@ module Module_move
     end
   end
 
-  def right_collision_box(key_class, box_class)
-    key_class.each do |_key|
+  def right_collision_box(box_class)
       box_class.each do |box|
-        puts Gosu.distance(@x_test, @y_test, box.x, box.y) < 55
+        puts "boxe non #{box.x} " + " x qui change #{@x_test}"
+        puts "distnace generale : #{Gosu.distance(box.x, box.y, @x_test, @y_test).round}"
+        puts "distance sous condition #{Gosu.distance(box.x, box.y, @x_test, @y_test).round==@x_test}"
       end
-    end
   end
 
   def left_collision(key_class)
