@@ -39,7 +39,8 @@ module Module_move
       box_class.each do |box|
         puts "boxe non changer #{box.x} " + " x qui change #{@x_test}"
         puts "distance generale : #{Gosu.distance(box.x, box.y, @x_test, @y_test).round}"
-        if box.x < @x_test
+        puts @y
+        if box.x <= @x_test and box.y >= @y_test
           puts 'bingo'
         end
       end
