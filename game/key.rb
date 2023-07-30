@@ -8,7 +8,7 @@ class Key
   include Module_move
   attr_accessor :keys, :boxes
 
-  Box = Struct.new(:img, :x, :y)
+  Box = Struct.new(:img, :x, :y, :w, :h)
 
   def initialize
     @keys = [{ 'img' => 'media/crate_42.png', 'x' => 70, 'y' => 0 },
@@ -17,7 +17,9 @@ class Key
              { 'img' => 'media/crate_45.png', 'x' => 70, 'y' => 415 }]
     @boxes = []
     @keys.each do |key|
-      @boxes << Box.new(Gosu::Image.new(key['img']), key['x'], key['y'])
+      box = Box.new(Gosu::Image.new(key['img']), key['x'], key['y'])
+      box.w, box.h = box.img.width, box.img.height
+      @boxes << box
     end
 
 
