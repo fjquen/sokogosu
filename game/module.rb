@@ -37,8 +37,6 @@ module Module_move
 
   def right_collision_box(box_class)
       box_class.each do |box|
-        puts "boxe non changer #{box.x} " + " x qui change #{@x_test}"
-        puts "distance generale : #{Gosu.distance(box.x, box.y, @x_test, @y_test).round}"
         if  @x_test >= box.x + box.w || 
             @x_test + box.w <= box.x || 
             @y_test >= box.y + box.h || 
