@@ -37,12 +37,12 @@ module Module_move
 
   def right_collision_box(box_class)
       box_class.each do |box|
-        if  @x_test >= box.x + box.w || 
-            @x_test + box.w <= box.x || 
-            @y_test >= box.y + box.h || 
-            @y_test + box.h <= box.y
+        if  @x >= box.x + box.w || 
+            @x + box.w <= box.x || 
+            @y >= box.y + box.h || 
+            @y + box.h <= box.y
         then
-          @x=0
+          puts 't'
         end
       end
   end
