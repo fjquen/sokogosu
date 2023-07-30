@@ -27,7 +27,7 @@ class Key
 
   def draw
     @boxes.each do |box|
-      box.draw
+      box.img.draw(box.x,box.y,0)
     end
   end
 end
