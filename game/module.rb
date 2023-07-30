@@ -26,7 +26,6 @@ module Module_move
       if Gosu.distance(key['x'], key['y'], @x, @y) < 55
         if key['x'] < 570
           key['x'] += 7
-          @x_test = key['x']
         else
           @x = key['x'] - 55
           return key['x']
