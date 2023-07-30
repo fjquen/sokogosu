@@ -4,12 +4,18 @@ require 'gosu'
 require './module'
 
 class Box
-    include Module_move
-    attr_accessor :boxes
-
-    Struct.new(:img, :x, :y, :w, :h)
-
-    def initialize
-        @boxes = []
+    attr_accessor :x, :y
+    attr_reader :w, :h
+  
+    def initialize(img)
+      @img = Gosu::Image.new(img)
+      @x = 0
+      @y = 0
+      @w = @img.width
+      @h = @img.height
+    end
+  
+    def draw
+      @img.draw(@x, @y)
     end
 end

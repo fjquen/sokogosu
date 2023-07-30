@@ -26,8 +26,8 @@ class Key
   end
 
   def draw
-    @boxes.each do |key|
-      key.img.draw(key.x, key.y, 0)
+    @boxes.each do |box|
+      box.draw
     end
   end
 end
