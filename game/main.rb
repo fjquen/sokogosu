@@ -3,8 +3,10 @@ require './player'
 require './key'
 
 class Main < Gosu::Window
+  WIDTH_WINDOW = 640
+  HEIGHT_WINDOW = 480
   def initialize
-    super 640, 480
+    super WIDTH_WINDOW, HEIGHT_WINDOW
     self.caption = 'sokogosu'
   end
 
