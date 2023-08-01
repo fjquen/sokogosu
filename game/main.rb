@@ -13,7 +13,7 @@ class Main < Gosu::Window
     @area1 = [["#","#","#","#","#","#","#","#","#","#","#","#"],
               ["#","","","","","","","","","","#","#"],
               ["#","","","","","","","","","","#","#"],
-              ["#","","","","","","","","","","#","#"],
+              ["#","","","","@","","","","","","#","#"],
               ["#","","","","","","","","","","#","#"],
               ["#","","","","","","","","","","#","#"],
               ["#","","","","","","","","","","#","#"],
@@ -42,6 +42,8 @@ class Main < Gosu::Window
             Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
           when ""
             Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
+          when "@"
+            Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
           else
             puts "ok"
         end
