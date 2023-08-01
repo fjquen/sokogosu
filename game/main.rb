@@ -10,6 +10,15 @@ class Main < Gosu::Window
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
+    @area1 = [["#","#","#","#","#","#","#","#","#","#","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","#","#","#","#","#","#","#","#","#","#","#"]]
   end
 
   def update
@@ -25,8 +34,24 @@ class Main < Gosu::Window
     end
   end
 
-  def draw
-    Gosu.draw_rect(WIDTH_TILE, HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
+  def draw_area
+    @area1.each_with_index do |single,x|
+      single.each_with_index do |twingle,y|
+        case twingle
+          when "#"
+            Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
+          when ""
+            Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
+          else
+            puts "ok"
+        end
+      end
+    end
   end
+
+  def draw
+    draw_area()
+  end
+
 end
 Main.new.show
