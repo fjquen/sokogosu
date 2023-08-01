@@ -45,7 +45,7 @@ class Main < Gosu::Window
           when "@"
             Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
           else
-            puts "ok"
+            puts "plus de carrée"
         end
       end
     end
