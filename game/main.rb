@@ -34,8 +34,6 @@ class Main < Gosu::Window
     end
   end
 
-  
-
   def draw
     draw_area()
   end
