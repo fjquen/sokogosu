@@ -10,15 +10,15 @@ class Main < Gosu::Window
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
-    @area1 = ["#","#","#","#","#","#","#","#","#","#","#","#",
-              "#","","","","","","","","","","#","#",
-              "#","","","","","","","","","","#","#",
-              "#","","","","@","","","","","","#","#",
-              "#","","","","","","","","","","#","#",
-              "#","","","","","","","","","","#","#",
-              "#","","","","","","","","","","#","#",
-              "#","","","","","","","","","","#","#",
-              "#","#","#","#","#","#","#","#","#","#","#","#"]
+    @area1 = [["#","#","#","#","#","#","#","#","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","@","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","","","","","","","","","","#","#"],
+              ["#","#","#","#","#","#","#","#","#","#"]]
   end
 
   def update
@@ -34,23 +34,24 @@ class Main < Gosu::Window
     end
   end
 
-  def draw_area
-    @area1.each do |single,x|
-      case single
-      when "#"
-        Gosu.draw_rect(x*WIDTH_TILE, x / HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
-      when ""
-        Gosu.draw_rect(y*WIDTH_TILE, x / HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
-      when "@"
-        Gosu.draw_rect(y*WIDTH_TILE, x / HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
-      else
-        puts "plus de carré"
-      end
-    end
-  end
+  
 
   def draw
     draw_area()
+  end
+
+  def draw_area
+    @area1.each_index do |y|
+      @area1[y].each_index do |x|
+         if @area1[y][x] == "#"
+          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
+         elsif @area1[y][x] == ""
+          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
+         elsif @area1[y][x] == "@"
+          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
+         end
+      end
+    end
   end
 
 end
