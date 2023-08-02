@@ -43,7 +43,7 @@ class Main < Gosu::Window
   def draw_area
     @area1.each_index do |y|
       @area1[y].each_index do |x|
-         if @area1[y][x] == "#"f
+         if @area1[y][x] == "#"
           Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
          elsif @area1[y][x] == ""
           Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
