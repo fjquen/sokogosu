@@ -10,15 +10,15 @@ class Main < Gosu::Window
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
-    @area1 = [["#","#","#","#","#","#","#","#","#","#","#","#"],
-              ["#","","","","","","","","","","#","#"],
-              ["#","","","","","","","","","","#","#"],
-              ["#","","","","@","","","","","","#","#"],
-              ["#","","","","","","","","","","#","#"],
-              ["#","","","","","","","","","","#","#"],
-              ["#","","","","","","","","","","#","#"],
-              ["#","","","","","","","","","","#","#"],
-              ["#","#","#","#","#","#","#","#","#","#","#","#"]]
+    @area1 = ["#","#","#","#","#","#","#","#","#","#","#","#",
+              "#","","","","","","","","","","#","#",
+              "#","","","","","","","","","","#","#",
+              "#","","","","@","","","","","","#","#",
+              "#","","","","","","","","","","#","#",
+              "#","","","","","","","","","","#","#",
+              "#","","","","","","","","","","#","#",
+              "#","","","","","","","","","","#","#",
+              "#","#","#","#","#","#","#","#","#","#","#","#"]
   end
 
   def update
@@ -35,18 +35,16 @@ class Main < Gosu::Window
   end
 
   def draw_area
-    @area1.each_with_index do |single,x|
-      single.each_with_index do |twingle,y|
-        case twingle
-          when "#"
-            Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
-          when ""
-            Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
-          when "@"
-            Gosu.draw_rect(y*WIDTH_TILE, x*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
-          else
-            puts "plus de carré"
-        end
+    @area1.each do |single,x|
+      case single
+      when "#"
+        Gosu.draw_rect(x*WIDTH_TILE, x / HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
+      when ""
+        Gosu.draw_rect(y*WIDTH_TILE, x / HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
+      when "@"
+        Gosu.draw_rect(y*WIDTH_TILE, x / HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
+      else
+        puts "plus de carré"
       end
     end
   end
