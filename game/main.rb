@@ -19,7 +19,7 @@ class Main < Gosu::Window
               ["#","","","","","","","","","","","#"],
               ["#","","","","","","","","","","","#"],
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
-    @x = 0
+    @x = @y = 0
   end
 
   def update
@@ -33,8 +33,9 @@ class Main < Gosu::Window
     when Gosu::KB_SPACE
       puts 'yo'
     when Gosu::KB_RIGHT
-      @x+=1
-      puts @x
+      
+      puts @area1.include?("@")
+      #@area1[@y][@x] = "@"
     end
   end
 
