@@ -19,6 +19,7 @@ class Main < Gosu::Window
               ["#","","","","","","","","","","","#"],
               ["#","","","","","","","","","","","#"],
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
+    @x = 0
   end
 
   def update
@@ -31,6 +32,9 @@ class Main < Gosu::Window
       close
     when Gosu::KB_SPACE
       puts 'yo'
+    when Gosu::KB_RIGHT
+      @x+=1
+      puts @x
     end
   end
 
