@@ -38,14 +38,6 @@ class Main < Gosu::Window
       @x +=1
       x = @x + col
       @area1[row][x] = "@"
-    when Gosu::KB_LEFT
-      pos_row = @area1.flatten.index("@")
-      pos_col = @area1.first.size
-      row = pos_row / pos_col
-      col = pos_row % pos_col
-      @x -=1
-      x = @x + col
-      @area1[row][x] = "@"
     end
   end
 
