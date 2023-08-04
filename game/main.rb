@@ -30,12 +30,22 @@ class Main < Gosu::Window
     case id
     when Gosu::KB_ESCAPE
       close
-    when Gosu::KB_SPACE
-      puts 'yo'
     when Gosu::KB_RIGHT
-      
-      puts @area1.include?("@")
-      #@area1[@y][@x] = "@"
+      pos_row = @area1.flatten.index("@")
+      pos_col = @area1.first.size
+      row = pos_row / pos_col
+      col = pos_row % pos_col
+      @x +=1
+      x = @x + col
+      @area1[row][x] = "@"
+    when Gosu::KB_LEFT
+      pos_row = @area1.flatten.index("@")
+      pos_col = @area1.first.size
+      row = pos_row / pos_col
+      col = pos_row % pos_col
+      @x -=1
+      x = @x + col
+      @area1[row][x] = "@"
     end
   end
 
