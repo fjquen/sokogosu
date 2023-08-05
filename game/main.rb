@@ -1,12 +1,15 @@
 require 'gosu'
+require './move_game.rb'
 
 class Main < Gosu::Window
+  include Move_game
   WIDTH_WINDOW = 640
   HEIGHT_WINDOW = 480
-
-
   WIDTH_TILE = 55
   HEIGHT_TILE = 55
+  PLAYER = "@"
+  WALL = "#"
+  
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
@@ -31,23 +34,13 @@ class Main < Gosu::Window
     when Gosu::KB_ESCAPE
       close
     when Gosu::KB_RIGHT
-      pos_row_player = @area1.flatten.index("@")
-      pos_col_player = @area1.first.size
-      row_player = pos_row_player / pos_col_player
-      col_player = pos_row_player % pos_col_player
-      @x = col_player
-      @x += 1
-      return if @area1[row_player][@x] == "#"
-      @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
+      right_move(PLAYER,WALL)
     when Gosu::KB_LEFT
-      pos_row_player = @area1.flatten.index("@")
-      pos_col_player = @area1.first.size
-      row_player = pos_row_player / pos_col_player
-      col_player = pos_row_player % pos_col_player
-      @x = col_player
-      @x -= 1
-      return if @area1[row_player][@x] == "#"
-      @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
+      left_move(PLAYER,WALL)
+    when Gosu::KB_UP
+      up_move(PLAYER,WALL)
+    when Gosu::KB_DOWN
+      down_move(PLAYER,WALL)
     end
   end
 
