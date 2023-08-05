@@ -9,17 +9,19 @@ class Main < Gosu::Window
   HEIGHT_TILE = 55
   PLAYER = "@"
   WALL = "#"
+  BLOCK= "&"
+  VOID = ""
   
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
     @area1 = [["#","#","#","#","#","#","#","#","#","#","#","#"],
               ["#","","","","","","","","","","","#"],
-              ["#","","","","","","","","","","","#"],
+              ["#","","","","","","","","&","","","#"],
               ["#","","","","@","","","","","","","#"],
               ["#","","","","","","","","","","","#"],
               ["#","","","","","","","","","","","#"],
-              ["#","","","","","","","","","","","#"],
+              ["#","","&","","","","","","","","","#"],
               ["#","","","","","","","","","","","#"],
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
     @x = @y = 0
@@ -34,7 +36,7 @@ class Main < Gosu::Window
     when Gosu::KB_ESCAPE
       close
     when Gosu::KB_RIGHT
-      right_move(PLAYER,WALL)
+      right_move(PLAYER,WALL,BLOCK)
     when Gosu::KB_LEFT
       left_move(PLAYER,WALL)
     when Gosu::KB_UP
@@ -57,6 +59,8 @@ class Main < Gosu::Window
           Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
          elsif @area1[y][x] == "@"
           Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
+         elsif @area1[y][x] == "&"
+          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::RED)
          end
       end
     end
