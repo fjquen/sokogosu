@@ -31,23 +31,23 @@ class Main < Gosu::Window
     when Gosu::KB_ESCAPE
       close
     when Gosu::KB_RIGHT
-      pos_row = @area1.flatten.index("@")
-      pos_col = @area1.first.size
-      row = pos_row / pos_col
-      col = pos_row % pos_col
-      @x = col
+      pos_row_player = @area1.flatten.index("@")
+      pos_col_player = @area1.first.size
+      row_player = pos_row_player / pos_col_player
+      col_player = pos_row_player % pos_col_player
+      @x = col_player
       @x += 1
       return if @area1[row][@x] == "#"
-      @area1[row][col],@area1[row][@x] = @area1[row][@x],@area1[row][col]
+      @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
     when Gosu::KB_LEFT
-      pos_row = @area1.flatten.index("@")
-      pos_col = @area1.first.size
-      row = pos_row / pos_col
-      col = pos_row % pos_col
-      @x = col
+      pos_row_player = @area1.flatten.index("@")
+      pos_col_player = @area1.first.size
+      row_player = pos_row_player / pos_col_player
+      col_player = pos_row_player % pos_col_player
+      @x = col_player
       @x -= 1
       return if @area1[row][@x] == "#"
-      @area1[row][col],@area1[row][@x] = @area1[row][@x],@area1[row][col]
+      @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
     end
   end
 
