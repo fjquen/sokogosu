@@ -36,7 +36,7 @@ class Main < Gosu::Window
     when Gosu::KB_ESCAPE
       close
     when Gosu::KB_RIGHT
-      right_move(PLAYER,WALL,BLOCK)
+      right_move(PLAYER,WALL)
     when Gosu::KB_LEFT
       left_move(PLAYER,WALL)
     when Gosu::KB_UP
