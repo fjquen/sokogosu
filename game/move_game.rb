@@ -6,6 +6,7 @@ module Move_game
         col_player = pos_row_player % pos_col_player
         @x = col_player
         @x += 1
+
         return if @area1[row_player][@x] == wall
             @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
     end 
