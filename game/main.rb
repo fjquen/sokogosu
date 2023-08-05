@@ -37,8 +37,8 @@ class Main < Gosu::Window
       col = pos_row % pos_col
       @x = col
       @x += 1
+      return if @area1[row][@x] == "#"
       @area1[row][col],@area1[row][@x] = @area1[row][@x],@area1[row][col]
-      puts "#{@x} #{col}"
     when Gosu::KB_LEFT
       pos_row = @area1.flatten.index("@")
       pos_col = @area1.first.size
@@ -46,7 +46,8 @@ class Main < Gosu::Window
       col = pos_row % pos_col
       @x = col
       @x -= 1
-      @area1[row][@x],@area1[row][col] = @area1[row][col],@area1[row][@x]
+      return if @area1[row][@x] == "#"
+      @area1[row][col],@area1[row][@x] = @area1[row][@x],@area1[row][col]
     end
   end
 
