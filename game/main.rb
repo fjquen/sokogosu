@@ -37,7 +37,7 @@ class Main < Gosu::Window
       col_player = pos_row_player % pos_col_player
       @x = col_player
       @x += 1
-      return if @area1[row][@x] == "#"
+      return if @area1[row_player][@x] == "#"
       @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
     when Gosu::KB_LEFT
       pos_row_player = @area1.flatten.index("@")
@@ -46,7 +46,7 @@ class Main < Gosu::Window
       col_player = pos_row_player % pos_col_player
       @x = col_player
       @x -= 1
-      return if @area1[row][@x] == "#"
+      return if @area1[row_player][@x] == "#"
       @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
     end
   end
