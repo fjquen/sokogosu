@@ -25,6 +25,7 @@ class Main < Gosu::Window
               ["#","","","","","","","","","","","#"],
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
     @x = @y = 0
+    @x_push=@push=0
   end
 
   def update
@@ -37,6 +38,7 @@ class Main < Gosu::Window
       close
     when Gosu::KB_RIGHT
       right_move(PLAYER,WALL)
+      push_box(PLAYER,BLOCK)
     when Gosu::KB_LEFT
       left_move(PLAYER,WALL)
     when Gosu::KB_UP
