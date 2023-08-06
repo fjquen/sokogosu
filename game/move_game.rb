@@ -58,7 +58,6 @@ module Move_game
         @x_push = col_box
         @x_push += 1
         return if @area1[row_player][@x] == @area1[row_box][@x_push]
-            puts 'u'
             @area1[row_box][col_box],@area1[row_box][@x_push] = @area1[row_box][@x_push],@area1[row_box][col_box]
             @area1[row_player][@x],@area1[row_box][@x_push] = @area1[row_box][@x_push],@area1[row_player][@x]
     end
