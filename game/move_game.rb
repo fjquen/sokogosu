@@ -46,10 +46,13 @@ module Move_game
     def push_box(player,box)
         @area1.each_index do |y|
             @area1[y].each_index do |x|
+                if @area1[y][x] == box
+                    puts "box #{x}"
+                    puts "box #{y}"
+                end
                 if @area1[y][x] == player
-                    if @area1[y][x] == box
-                        puts "u"
-                    end
+                    puts "player #{x}"
+                    puts "player #{y}"
                 end
             end
         end
