@@ -47,18 +47,10 @@ module Move_game
         @area1.each_index do |y|
             @area1[y].each_index do |x|
                 if @area1[y][x] == box
-                    @pusher.x_box = x
-                    @pusher.y_box = y
+                    puts @area1[y][x] 
+                    puts @area1[@y][@x_player]
                 end
-                if @area1[y][x] == player
-                    @pusher.x_player = x
-                    @pusher.y_player = y
-                end
-
-                @array<<{"xPlayer"=>@pusher.x_player,"yPlayer"=>@pusher.y_player }
-                @array<<{"xBox"=>@pusher.x_box,"yBox"=>@pusher.y_box }
             end
         end
-        puts @array
     end
 end
