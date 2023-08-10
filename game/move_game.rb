@@ -48,7 +48,6 @@ module Move_game
             @area1[y].each_index do |x|
                 if @area1[y][x] == box
                     puts @area1[y][x] 
-                    puts @area1[@y][@x_player]
                 end
             end
         end

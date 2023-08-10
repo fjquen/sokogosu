@@ -1,6 +1,5 @@
 require 'gosu'
 require './move_game.rb'
-require './pusher.rb'
 
 class Main < Gosu::Window
   include Move_game
