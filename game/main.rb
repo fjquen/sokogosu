@@ -1,5 +1,6 @@
 require 'gosu'
 require './move_game.rb'
+require './pusher.rb'
 
 class Main < Gosu::Window
   include Move_game
@@ -26,6 +27,8 @@ class Main < Gosu::Window
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
     @x = @y = 0
     @x_push=@push=0
+    @pusher = Pusher.new
+    @array = []
   end
 
   def update
