@@ -59,8 +59,13 @@ module Move_game
         @area1.each_index do |y|
             @area1[y].each_index do |x|
                 if @area1[y][x] == box
-                    if @area1[row_player][@x] == @area1[y][x]
-                        puts "y"
+                    if @area1[row_player][@x] == box
+                        if row_player==y &&  x==@x
+                            puts "player #{row_player}"
+                            puts "player #{@x}"
+                            puts "box #{y}"
+                            puts "box #{x}"
+                        end
                     end
                 end
             end
