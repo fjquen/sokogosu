@@ -59,6 +59,9 @@ module Move_game
                             puts "player #{@x}"
                             puts "box #{y}"
                             puts "box #{x}"
+                            @x_push = x
+                            @x_push += 1
+                            puts @x_push
                         end
                     end
                 end
