@@ -61,7 +61,7 @@ module Move_game
                             puts "box #{x}"
                             @x_push = x
                             @x_push += 1
-                            puts @x_push
+                            @area1[y][x] = @area1[y][@x_push]
                         end
                     end
                 end
