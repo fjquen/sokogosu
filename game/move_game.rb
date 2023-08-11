@@ -55,10 +55,6 @@ module Move_game
                 if @area1[y][x] == box
                     if @area1[row_player][@x] == box
                         if row_player==y &&  x==@x
-                            puts "player #{row_player}"
-                            puts "player #{@x}"
-                            puts "box #{y}"
-                            puts "box #{x}"
                             @x_push = x
                             @x_push += 1
                             return if @area1[y][@x_push] == wall
