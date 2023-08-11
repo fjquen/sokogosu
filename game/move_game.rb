@@ -43,7 +43,7 @@ module Move_game
         @area1[row_player][col_player],@area1[@y][col_player] = @area1[@y][col_player],@area1[row_player][col_player]
     end
 
-    def push_box(player,box)
+    def push_box(player,box,wall)
         pos_row_player = @area1.flatten.index(player)
         pos_col_player = @area1.first.size
         row_player = pos_row_player / pos_col_player
@@ -61,7 +61,8 @@ module Move_game
                             puts "box #{x}"
                             @x_push = x
                             @x_push += 1
-                            @area1[y][x] = @area1[y][@x_push]
+                            return if @area1[y][@x_push] == wall
+                            @area1[y][x],@area1[y][@x_push] = @area1[y][@x_push],@area1[y][x]
                         end
                     end
                 end
