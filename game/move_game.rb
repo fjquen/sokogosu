@@ -50,12 +50,6 @@ module Move_game
         col_player = pos_row_player % pos_col_player
         @x = col_player
         @x += 1
-        pos_row_player = @area1.flatten.index(player)
-        pos_col_player = @area1.first.size
-        row_player = pos_row_player / pos_col_player
-        col_player = pos_row_player % pos_col_player
-        @y = row_player
-        @y += 1
         @area1.each_index do |y|
             @area1[y].each_index do |x|
                 if @area1[y][x] == box
