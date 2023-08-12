@@ -38,13 +38,16 @@ class Main < Gosu::Window
       close
     when Gosu::KB_RIGHT
       right_move(PLAYER,WALL)
-      push_box(PLAYER,BLOCK,WALL,VOID)
+      push_box_right(PLAYER,BLOCK,WALL,VOID)
     when Gosu::KB_LEFT
       left_move(PLAYER,WALL)
+      push_box_left(PLAYER,BLOCK,WALL,VOID)
     when Gosu::KB_UP
       up_move(PLAYER,WALL)
+      #push_box(PLAYER,BLOCK,WALL,VOID)
     when Gosu::KB_DOWN
       down_move(PLAYER,WALL)
+      #push_box(PLAYER,BLOCK,WALL,VOID)
     end
   end
 
