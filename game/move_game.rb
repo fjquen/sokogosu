@@ -1,5 +1,5 @@
 module Move_game
-    def right_move(player,wall)
+    def right_move(player,wall,block)
         pos_row_player = @area1.flatten.index(player)
         pos_col_player = @area1.first.size
         row_player = pos_row_player / pos_col_player
@@ -59,6 +59,8 @@ module Move_game
                             @x_push += 1
                             return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
+                            return elsif @area1[row_player][@x]<@area1[y][@x_push]
+                            puts "g"
                         end
                     end
                 end
