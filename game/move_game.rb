@@ -57,7 +57,7 @@ module Move_game
                         if row_player==y && x==@x
                             @x_push = x
                             @x_push += 1
-                            return if @area1[y][@x_push] == wall && @area1[row_player][@x] == @area1[y][x]
+                            return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
                         end
                     end
