@@ -41,7 +41,7 @@ class Main < Gosu::Window
       push_box_right(PLAYER,BLOCK,WALL,VOID)
     when Gosu::KB_LEFT
       left_move(PLAYER,WALL)
-      push_box_left(PLAYER,BLOCK,WALL,VOID)
+      #push_box_left(PLAYER,BLOCK,WALL,VOID)
     when Gosu::KB_UP
       up_move(PLAYER,WALL)
       #push_box(PLAYER,BLOCK,WALL,VOID)
