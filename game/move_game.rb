@@ -16,9 +16,6 @@ module Move_game
                             return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
 
-                            puts @area1[y][@x_push]
-                            puts @area1[y][x]
-
                             if @area1[y][@x_push] == "&" && @area1[y][x] == "&"
                                 @x = col_player
                             end
@@ -47,6 +44,10 @@ module Move_game
                             @x_push -= 1
                             return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
+
+                            if @area1[y][@x_push] == "&" && @area1[y][x] == "&"
+                                @x = col_player
+                            end
                         end
                     end
                 end
@@ -72,6 +73,10 @@ module Move_game
                             @y_push -= 1
                             return if @area1[@y_push][x] == wall
                             @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
+
+                            if @area1[@y_push][x] == "&" && @area1[y][x] == "&"
+                                @y = row_player
+                            end
                         end
                     end
                 end
@@ -97,6 +102,10 @@ module Move_game
                             @y_push += 1
                             return if @area1[@y_push][x] == wall
                             @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
+
+                            if @area1[@y_push][x] == "&" && @area1[y][x] == "&"
+                                @y = row_player
+                            end
                         end
                     end
                 end
