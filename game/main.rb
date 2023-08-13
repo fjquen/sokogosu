@@ -37,7 +37,7 @@ class Main < Gosu::Window
     when Gosu::KB_ESCAPE
       close
     when Gosu::KB_RIGHT
-      push_box_right(PLAYER,BLOCK,WALL,VOID)  
+      #push_box_right(PLAYER,BLOCK,WALL,VOID)  
       right_move(PLAYER,WALL,BLOCK)
     when Gosu::KB_LEFT
       left_move(PLAYER,WALL)
