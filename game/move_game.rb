@@ -59,8 +59,6 @@ module Move_game
                             @x_push += 1
                             return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
-                            return elsif @area1[row_player][@x]<@area1[y][@x_push]
-                            puts "g"
                         end
                     end
                 end
