@@ -27,6 +27,9 @@ module Move_game
                 end
             end
         end
+        if @area1[row_player][@x] == win
+            @x = col_player
+        end
         return if @area1[row_player][@x] == wall
             @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
     end 
