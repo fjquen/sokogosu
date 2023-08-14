@@ -40,11 +40,11 @@ class Main < Gosu::Window
     when Gosu::KB_RIGHT
       right_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
     when Gosu::KB_LEFT
-      left_move_push(PLAYER,WALL,BLOCK)
+      left_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
     when Gosu::KB_UP
-      up_move_push(PLAYER,WALL,BLOCK)
+      up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
     when Gosu::KB_DOWN
-      down_move_push(PLAYER,WALL,BLOCK)
+      down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
     end
   end
 
