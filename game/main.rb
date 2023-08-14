@@ -13,6 +13,7 @@ class Main < Gosu::Window
   VOID = ""
   GOAL = "*"
   WIN = "!"
+
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
@@ -45,6 +46,16 @@ class Main < Gosu::Window
       up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
     when Gosu::KB_DOWN
       down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+    when Gosu::KB_R
+      @area1 = [["#","#","#","#","#","#","#","#","#","#","#","#"],
+              ["#","","","","","","","","","","","#"],
+              ["#","","","","","","","","&","","","#"],
+              ["#","","","","@","","","","","","","#"],
+              ["#","","","","","","","","*","","","#"],
+              ["#","","","","","*","","","","","","#"],
+              ["#","","","&","","","","","","","","#"],
+              ["#","","","","","","","","","","","#"],
+              ["#","#","#","#","#","#","#","#","#","#","#","#"]]
     end
   end
 
@@ -56,7 +67,7 @@ class Main < Gosu::Window
     @area1.each_index do |y|
       @area1[y].each_index do |x|
          if @area1[y][x] == WALL
-          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::FUCHSIA)
+          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLUE)
          elsif @area1[y][x] == VOID
           Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
          elsif @area1[y][x] == PLAYER
@@ -64,13 +75,12 @@ class Main < Gosu::Window
          elsif @area1[y][x] == BLOCK
           Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::RED)
          elsif @area1[y][x] == GOAL
-          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::YELLOW)
+          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GRAY)
          elsif @area1[y][x] == WIN
           Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GREEN)
          end
       end
     end
   end
-
 end
 Main.new.show
