@@ -30,6 +30,9 @@ module Move_game
         if @area1[row_player][@x] == win
             @x = col_player
         end
+        if @area1[row_player][@x] == goal
+            @x = col_player
+        end
         return if @area1[row_player][@x] == wall
             @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
     end 
@@ -63,6 +66,9 @@ module Move_game
             end
         end
         if @area1[row_player][@x] == win
+            @x = col_player
+        end
+        if @area1[row_player][@x] == goal
             @x = col_player
         end
         return if @area1[row_player][@x] == wall
@@ -100,6 +106,9 @@ module Move_game
         if @area1[@y][col_player] == win
             @y = row_player
         end
+        if @area1[@y][col_player] == goal
+            @y = row_player
+        end
         return if @area1[@y][col_player] == wall
             @area1[row_player][col_player],@area1[@y][col_player] = @area1[@y][col_player],@area1[row_player][col_player]
     end
@@ -133,6 +142,9 @@ module Move_game
             end
         end
         if @area1[@y][col_player] == win
+            @y = row_player
+        end
+        if @area1[@y][col_player] == goal
             @y = row_player
         end
         return if @area1[@y][col_player] == wall
