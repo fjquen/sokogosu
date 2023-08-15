@@ -28,10 +28,12 @@ class Main < Gosu::Window
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
     @x = @y = 0
     @x_push = @y_push = 0
+    @count_block = @area1.flatten.count(BLOCK)
+    @point_win = 0
   end
 
   def update
-    
+
   end
 
   def button_down(id)
@@ -61,6 +63,7 @@ class Main < Gosu::Window
 
   def draw
     draw_area()
+    draw_font_win()
   end
 
   def draw_area
@@ -80,6 +83,11 @@ class Main < Gosu::Window
           Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GREEN)
          end
       end
+    end
+  end
+  def draw_font_win
+    if @count_block == @point_win
+      puts 'gagné'
     end
   end
 end

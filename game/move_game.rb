@@ -19,6 +19,7 @@ module Move_game
                             if @area1[y][@x_push] == goal
                                 @area1[y][@x_push] = void
                                 @area1[y][x] = win
+                                @point_win += 1
                             end
                             return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
@@ -57,6 +58,7 @@ module Move_game
                             if @area1[y][@x_push] == goal
                                 @area1[y][@x_push] = void
                                 @area1[y][x] = win
+                                @point_win += 1
                             end
                             return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
@@ -95,6 +97,7 @@ module Move_game
                             if @area1[@y_push][x] == goal
                                 @area1[@y_push][x] = void
                                 @area1[y][x] = win
+                                @point_win += 1
                             end
                             return if @area1[@y_push][x] == wall
                             @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
@@ -133,6 +136,7 @@ module Move_game
                             if @area1[@y_push][x] == goal
                                 @area1[@y_push][x] = void
                                 @area1[y][x] = win
+                                @point_win += 1
                             end
                             return if @area1[@y_push][x] == wall
                             @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
