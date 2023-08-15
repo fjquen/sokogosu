@@ -43,25 +43,25 @@ class Main < Gosu::Window
     case id
     when Gosu::KB_ESCAPE
       close
-    when Gosu::KB_RIGHT
+    when Gosu::KB_RIGHT,Gosu::GP_RIGHT
        if @area1.empty?
         return @word_end
        else
         right_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
        end
-    when Gosu::KB_LEFT
+    when Gosu::KB_LEFT,Gosu::GP_LEFT
        if @area1.empty?
         return @word_end
        else
         left_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
        end
-    when Gosu::KB_UP
+    when Gosu::KB_UP,Gosu::GP_UP
        if @area1.empty?
         return @word_end
        else
         up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
        end
-    when Gosu::KB_DOWN
+    when Gosu::KB_DOWN,Gosu::GP_DOWN
        if @area1.empty?
         return @word_end
        else
@@ -81,8 +81,6 @@ class Main < Gosu::Window
               ["#","","","","","","","","","","","#"],
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
       end
-    else
-      puts "Mauvaise touche"
     end
   end
 
