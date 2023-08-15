@@ -117,7 +117,7 @@ class Main < Gosu::Window
     if @count_block == @point_win
       @bool = false
       Gosu.draw_rect(100, 190, 400, 50, Gosu::Color::WHITE)
-      @font.draw_text("#{@word_end}", 210, 205, 0, 1, 1, Gosu::Color::BLACK)
+      @font.draw_text("#{@word_end}", 230, 205, 0, 1, 1, Gosu::Color::BLACK)
       @area1.clear
     end
   end
