@@ -30,6 +30,9 @@ class Main < Gosu::Window
     @x_push = @y_push = 0
     @count_block = @area1.flatten.count(BLOCK)
     @point_win = 0
+    @font = Gosu::Font.new(20)
+    @word_end = 'Niveaux terminé'
+    @bool = true
   end
 
   def update
@@ -41,14 +44,33 @@ class Main < Gosu::Window
     when Gosu::KB_ESCAPE
       close
     when Gosu::KB_RIGHT
-      right_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+       if @area1.empty?
+        return @word_end
+       else
+        right_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+       end
     when Gosu::KB_LEFT
-      left_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+       if @area1.empty?
+        return @word_end
+       else
+        left_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+       end
     when Gosu::KB_UP
-      up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+       if @area1.empty?
+        return @word_end
+       else
+        up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+       end
     when Gosu::KB_DOWN
-      down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+       if @area1.empty?
+        return @word_end
+       else
+        down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+       end
     when Gosu::KB_R
+      if @area1.empty?
+        return @word_end
+      else
       @area1 = [["#","#","#","#","#","#","#","#","#","#","#","#"],
               ["#","","","","","","","","","","","#"],
               ["#","","","","","","","","&","","","#"],
@@ -58,6 +80,7 @@ class Main < Gosu::Window
               ["#","","","&","","","","","","","","#"],
               ["#","","","","","","","","","","","#"],
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
+      end
     else
       puts "Mauvaise touche"
     end
@@ -66,6 +89,9 @@ class Main < Gosu::Window
   def draw
     draw_area()
     draw_font_win()
+    if @bool
+      @font.draw_text("Nombre d'objectif atteint : #{@point_win}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
+    end
   end
 
   def draw_area
@@ -89,7 +115,10 @@ class Main < Gosu::Window
   end
   def draw_font_win
     if @count_block == @point_win
-      puts 'gagné'
+      @bool = false
+      Gosu.draw_rect(100, 190, 400, 50, Gosu::Color::WHITE)
+      @font.draw_text("#{@word_end}", 210, 205, 0, 1, 1, Gosu::Color::BLACK)
+      @area1.clear
     end
   end
 end
