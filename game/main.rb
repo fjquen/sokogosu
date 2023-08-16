@@ -33,10 +33,11 @@ class Main < Gosu::Window
     @font = Gosu::Font.new(20)
     @word_end = 'Niveaux terminé'
     @bool = true
+    @bool_draw_again = false
   end
 
   def update
-
+    
   end
 
   def button_down(id)
@@ -68,9 +69,7 @@ class Main < Gosu::Window
         down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
        end
     when Gosu::KB_R
-      if @area1.empty?
-        return @word_end
-      else
+      
       @area1 = [["#","#","#","#","#","#","#","#","#","#","#","#"],
               ["#","","","","","","","","","","","#"],
               ["#","","","","","","","","&","","","#"],
@@ -80,7 +79,8 @@ class Main < Gosu::Window
               ["#","","","&","","","","","","","","#"],
               ["#","","","","","","","","","","","#"],
               ["#","#","#","#","#","#","#","#","#","#","#","#"]]
-      end
+      @bool = true
+      @point_win = 0
     end
   end
 
