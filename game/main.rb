@@ -31,7 +31,7 @@ class Main < Gosu::Window
     @count_block = @area1.flatten.count(BLOCK)
     @point_win = 0
     @font = Gosu::Font.new(20)
-    @word_end = 'Niveaux terminé'
+    @word_end = "Niveaux terminé"
     @bool = true
     @bool_draw_again = false
   end
@@ -115,7 +115,7 @@ class Main < Gosu::Window
     if @count_block == @point_win
       @bool = false
       Gosu.draw_rect(100, 190, 400, 50, Gosu::Color::WHITE)
-      @font.draw_text("#{@word_end}", 230, 205, 0, 1, 1, Gosu::Color::BLACK)
+      @font.draw_text("#{@word_end} les #{@point_win} blocs sont arrivés", 130, 205, 0, 1, 1, Gosu::Color::BLACK)
       @area1.clear
     end
   end
