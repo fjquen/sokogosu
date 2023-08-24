@@ -18,7 +18,7 @@ class Main < Gosu::Window
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
     @arr=[]
-    File.foreach("data.txt") { |line| 
+    File.foreach(Dir.glob("*txt")[1]) { |line| 
         @arr<<line.split("")
     }
     @area1 = @arr
