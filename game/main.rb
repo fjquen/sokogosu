@@ -17,8 +17,9 @@ class Main < Gosu::Window
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
+    @num_level = 1
     @arr=[]
-    File.foreach(Dir.glob("*txt")[1]) { |line| 
+    File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
         @arr<<line.split("")
     }
     @area1 = @arr
@@ -30,6 +31,7 @@ class Main < Gosu::Window
     @word_end = "Niveaux terminé"
     @bool = true
     @bool_draw_again = false
+    
   end
 
   def update
@@ -65,16 +67,11 @@ class Main < Gosu::Window
         down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
        end
     when Gosu::KB_R
-      
-      @area1 = [["#","#","#","#","#","#","#","#","#","#","#","#"],
-                ["#"," "," "," "," "," "," "," "," "," "," ","#"],
-                ["#"," "," "," "," "," "," "," ","&"," "," ","#"],
-                ["#"," "," "," ","@"," "," "," "," "," "," ","#"],
-                ["#"," "," "," "," "," "," "," ","*"," "," ","#"],
-                ["#"," "," "," "," ","*"," "," "," "," "," ","#"],
-                ["#"," "," ","&"," "," "," "," "," "," "," ","#"],
-                ["#"," "," "," "," "," "," "," "," "," "," ","#"],
-                ["#","#","#","#","#","#","#","#","#","#","#","#"]]
+      arr = []
+      File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
+        arr<<line.split("")
+      }
+      @area1 = arr
       @bool = true
       @point_win = 0
     end

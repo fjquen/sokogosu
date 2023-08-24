@@ -21,6 +21,9 @@ module Move_game
                                 @area1[y][x] = win
                                 @point_win += 1
                             end
+                            if @area1[y][@x_push] == win && @area1[y][x] == block
+                                @x_push = x-1
+                            end
                             return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
                         end
@@ -59,6 +62,9 @@ module Move_game
                                 @area1[y][@x_push] = void
                                 @area1[y][x] = win
                                 @point_win += 1
+                            end
+                            if @area1[y][@x_push] == win && @area1[y][x] == block
+                                @x_push = x+1
                             end
                             return if @area1[y][@x_push] == wall
                             @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
@@ -99,6 +105,9 @@ module Move_game
                                 @area1[y][x] = win
                                 @point_win += 1
                             end
+                            if @area1[@y_push][x] == win && @area1[y][x] == block
+                                @y_push = y+1
+                            end
                             return if @area1[@y_push][x] == wall
                             @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
                         end
@@ -137,6 +146,9 @@ module Move_game
                                 @area1[@y_push][x] = void
                                 @area1[y][x] = win
                                 @point_win += 1
+                            end
+                            if @area1[@y_push][x] == win && @area1[y][x] == block
+                                @y_push = y-1
                             end
                             return if @area1[@y_push][x] == wall
                             @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
