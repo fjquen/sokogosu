@@ -17,7 +17,7 @@ class Main < Gosu::Window
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
-    @num_level = 1
+    @num_level = 0
     @arr=[]
     File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
         @arr<<line.split("")
@@ -74,6 +74,17 @@ class Main < Gosu::Window
       @area1 = arr
       @bool = true
       @point_win = 0
+    when Gosu::KB_A
+      if @count_block == @point_win
+        @num_level+=1
+        arr = []
+        File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
+          arr<<line.split("")
+        }
+        @area1 = arr
+        @bool = true
+        @point_win = 0
+      end
     end
   end
 
