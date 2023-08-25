@@ -77,13 +77,13 @@ class Main < Gosu::Window
     when Gosu::KB_A
       if @count_block == @point_win
         @num_level+=1
-        arr = []
         File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
-          arr<<line.split("")
+          @arr<<line.split("")
         }
-        @area1 = arr
+        @area1 = @arr
         @bool = true
         @point_win = 0
+        @count_block = @area1.flatten.count(BLOCK)
       end
     end
   end
