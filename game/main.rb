@@ -77,9 +77,14 @@ class Main < Gosu::Window
     when Gosu::KB_A
       if @count_block == @point_win
         @num_level+=1
-        File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
-          @arr<<line.split("")
-        }
+        if @num_level < Dir.glob("*txt").length
+          File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
+            @arr<<line.split("")
+          }
+        else
+          close
+        end
+        
         @area1 = @arr
         @bool = true
         @point_win = 0
