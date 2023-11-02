@@ -40,24 +40,28 @@ class Main < Gosu::Window
         return @word_end
        else
         right_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+        puts MOVE[0]
        end
     when Gosu::KB_LEFT,Gosu::GP_LEFT
        if @area1.empty?
         return @word_end
        else
         left_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+        puts MOVE[1]
        end
     when Gosu::KB_UP,Gosu::GP_UP
        if @area1.empty?
         return @word_end
        else
         up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+        puts MOVE[2]
        end
     when Gosu::KB_DOWN,Gosu::GP_DOWN
        if @area1.empty?
         return @word_end
        else
         down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+        puts MOVE[3]
        end
     when Gosu::KB_R
       arr = []

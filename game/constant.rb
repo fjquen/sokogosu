@@ -9,4 +9,5 @@ module Constant
     VOID = " "
     GOAL = "*"
     WIN = "!"
+    MOVE = ["d","g","h","b"]
 end
