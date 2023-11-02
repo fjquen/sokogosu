@@ -39,6 +39,9 @@ module Move_game
         # end
         # return if @area1[row_player][@x] == wall
         #     @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
+
+        puts tab_move
+        puts dir_move
     end
 
     def right_move_push(player,wall,block,goal,void,win)
