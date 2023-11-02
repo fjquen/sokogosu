@@ -1,18 +1,11 @@
 require 'gosu'
 require './move_game.rb'
+require './constant.rb'
+
 
 class Main < Gosu::Window
   include Move_game
-  WIDTH_WINDOW = 640
-  HEIGHT_WINDOW = 480
-  WIDTH_TILE = 55
-  HEIGHT_TILE = 55
-  PLAYER = "@"
-  WALL = "#"
-  BLOCK= "&"
-  VOID = " "
-  GOAL = "*"
-  WIN = "!"
+  include Constant
 
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
