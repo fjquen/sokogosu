@@ -29,18 +29,16 @@ module Move_game
     end
 
     def return_move_wall(axe_direction,row,col,wall,axe)
-        
         case axe_direction
-        when axe["x"]
-            return if @area1[row][@x] == wall
-                    @area1[row][col],@area1[row][@x] = @area1[row][@x],@area1[row][col]
-        when axe["y"]
-            return if @area1[@y][col] == wall
-                    @area1[row][col],@area1[@y][col] = @area1[@y][col],@area1[row][col]
-        else
-            puts "mauvaise valeur objet #{axe}"
+            when axe["x"]
+                return if @area1[row][@x] == wall
+                        @area1[row][col],@area1[row][@x] = @area1[row][@x],@area1[row][col]
+            when axe["y"]
+                return if @area1[@y][col] == wall
+                        @area1[row][col],@area1[@y][col] = @area1[@y][col],@area1[row][col]
+            else
+                puts "mauvaise valeur objet #{axe}"
         end
-     
     end
 
     def right_move_push(player,wall,block,goal,void,win)
