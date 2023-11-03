@@ -1,5 +1,5 @@
 module Move_game
-    def move_push(player,wall,block,goal,void,win,obj_move,dir_move)
+    def move_push(player,wall,block,goal,void,win,obj_move,dir_move,axe)
         pos_row_player = @area1.flatten.index(player)
         pos_col_player = @area1.first.size
         row_player = pos_row_player / pos_col_player
@@ -9,30 +9,39 @@ module Move_game
             when obj_move["r"]
                 @x = col_player
                 @x += 1
-                return if @area1[row_player][@x] == wall
-                    @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
+                return_move_wall(axe["x"],row_player,col_player,wall,axe)
             when obj_move["l"]
                 @x = col_player
                 @x -= 1
-                return if @area1[row_player][@x] == wall
-                    @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
+                return_move_wall(axe["x"],row_player,col_player,wall,axe)
             when obj_move["u"]
                 @y = row_player
                 @y -= 1
-                return if @area1[@y][col_player] == wall
-                    @area1[row_player][col_player],@area1[@y][col_player] = @area1[@y][col_player],@area1[row_player][col_player]
+                return_move_wall(axe["y"],row_player,col_player,wall,axe)
             when obj_move["d"]
                 @y = row_player
                 @y += 1
-                return if @area1[@y][col_player] == wall
-                    @area1[row_player][col_player],@area1[@y][col_player] = @area1[@y][col_player],@area1[row_player][col_player]
+                return_move_wall(axe["y"],row_player,col_player,wall,axe)
             else
-                puts "mauvaise valeur de tableau #{dir_move}"
+                puts "mauvaise valeur objet #{dir_move}"
         end
         
     end
 
-
+    def return_move_wall(axe_direction,row,col,wall,axe)
+        
+        case axe_direction
+        when axe["x"]
+            return if @area1[row][@x] == wall
+                    @area1[row][col],@area1[row][@x] = @area1[row][@x],@area1[row][col]
+        when axe["y"]
+            return if @area1[@y][col] == wall
+                    @area1[row][col],@area1[@y][col] = @area1[@y][col],@area1[row][col]
+        else
+            puts "mauvaise valeur objet #{axe}"
+        end
+     
+    end
 
     def right_move_push(player,wall,block,goal,void,win)
         pos_row_player = @area1.flatten.index(player)
