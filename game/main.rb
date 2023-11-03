@@ -39,28 +39,28 @@ class Main < Gosu::Window
        if @area1.empty?
         return @word_end
        else
-        right_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+        #right_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
         move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["r"])
        end
     when Gosu::KB_LEFT,Gosu::GP_LEFT
        if @area1.empty?
         return @word_end
        else
-        left_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+        #left_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
         move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["l"])
        end
     when Gosu::KB_UP,Gosu::GP_UP
        if @area1.empty?
         return @word_end
        else
-        up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+        #up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
         move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["u"])
        end
     when Gosu::KB_DOWN,Gosu::GP_DOWN
        if @area1.empty?
         return @word_end
        else
-        down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
+        #down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
         move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"])
        end
     when Gosu::KB_R

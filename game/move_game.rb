@@ -7,26 +7,32 @@ module Move_game
         
         case dir_move
             when obj_move["r"]
-                x = col_player
-                x += 1
-                puts x
+                @x = col_player
+                @x += 1
+                return if @area1[row_player][@x] == wall
+                    @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
             when obj_move["l"]
-                x = col_player
-                x -= 1
-                puts x
+                @x = col_player
+                @x -= 1
+                return if @area1[row_player][@x] == wall
+                    @area1[row_player][col_player],@area1[row_player][@x] = @area1[row_player][@x],@area1[row_player][col_player]
             when obj_move["u"]
-                y = row_player
-                y -= 1
-                puts y
+                @y = row_player
+                @y -= 1
+                return if @area1[@y][col_player] == wall
+                    @area1[row_player][col_player],@area1[@y][col_player] = @area1[@y][col_player],@area1[row_player][col_player]
             when obj_move["d"]
-                y = row_player
-                y += 1
-                puts y
+                @y = row_player
+                @y += 1
+                return if @area1[@y][col_player] == wall
+                    @area1[row_player][col_player],@area1[@y][col_player] = @area1[@y][col_player],@area1[row_player][col_player]
             else
                 puts "mauvaise valeur de tableau #{dir_move}"
         end
         
     end
+
+
 
     def right_move_push(player,wall,block,goal,void,win)
         pos_row_player = @area1.flatten.index(player)
