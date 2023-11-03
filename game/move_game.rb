@@ -5,7 +5,6 @@ module Move_game
         row_player = pos_row_player / pos_col_player
         col_player = pos_row_player % pos_col_player
         
-
         case dir_move
             when obj_move["r"]
                 x = col_player
