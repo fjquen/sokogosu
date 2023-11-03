@@ -9,6 +9,7 @@ module Move_game
             when obj_move["r"]
                 @x = col_player
                 @x += 1
+                
                 return_move_wall(axe["x"],row_player,col_player,wall,axe)
             when obj_move["l"]
                 @x = col_player
@@ -38,6 +39,40 @@ module Move_game
                         @area1[row][col],@area1[@y][col] = @area1[@y][col],@area1[row][col]
             else
                 puts "mauvaise valeur objet #{axe}"
+        end
+    end
+
+    def check_collision(row,col,wall,block,goal,void,win)
+        @area1.each_index do |y|
+            @area1[y].each_index do |x|
+                if @area1[y][x] == block
+                    if @area1[row][@x] == block
+                        if row==y && x==@x
+                            @x_push = x
+                            @x_push += 1
+                            if @area1[y][@x_push] == block && @area1[y][x] == block
+                                @x = col
+                            end
+                            if @area1[y][@x_push] == goal
+                                @area1[y][@x_push] = void
+                                @area1[y][x] = win
+                                @point_win += 1
+                            end
+                            if @area1[y][@x_push] == win && @area1[y][x] == block
+                                @x_push = x-1
+                            end
+                            return if @area1[y][@x_push] == wall
+                            @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
+                        end
+                    end
+                end
+            end
+        end
+        if @area1[row][@x] == win
+            @x = col
+        end
+        if @area1[row][@x] == goal
+            @x = col
         end
     end
 
