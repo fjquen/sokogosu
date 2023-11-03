@@ -1,5 +1,5 @@
 module Move_game
-    def move_push(player,wall,block,goal,void,win,tab_move,dir_move)
+    def move_push(player,wall,block,goal,void,win,obj_move,dir_move)
         pos_row_player = @area1.flatten.index(player)
         pos_col_player = @area1.first.size
         row_player = pos_row_player / pos_col_player
@@ -7,19 +7,19 @@ module Move_game
         
 
         case dir_move
-            when tab_move[0]
+            when obj_move["r"]
                 x = col_player
                 x += 1
                 puts x
-            when tab_move[1]
+            when obj_move["l"]
                 x = col_player
                 x -= 1
                 puts x
-            when tab_move[2]
+            when obj_move["u"]
                 y = row_player
                 y -= 1
                 puts y
-            when tab_move[3]
+            when obj_move["d"]
                 y = row_player
                 y += 1
                 puts y
