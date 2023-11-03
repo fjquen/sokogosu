@@ -1,11 +1,31 @@
 module Move_game
     def move_push(player,wall,block,goal,void,win,tab_move,dir_move)
-        # pos_row_player = @area1.flatten.index(player)
-        # pos_col_player = @area1.first.size
-        # row_player = pos_row_player / pos_col_player
-        # col_player = pos_row_player % pos_col_player
-        # @x = col_player
-        # @x += 1
+        pos_row_player = @area1.flatten.index(player)
+        pos_col_player = @area1.first.size
+        row_player = pos_row_player / pos_col_player
+        col_player = pos_row_player % pos_col_player
+        
+
+        case dir_move
+            when tab_move[0]
+                x = col_player
+                x += 1
+                puts x
+            when tab_move[1]
+                x = col_player
+                x -= 1
+                puts x
+            when tab_move[2]
+                y = row_player
+                y -= 1
+                puts y
+            when tab_move[3]
+                y = row_player
+                y += 1
+                puts y
+            else
+                puts "mauvaise valeur de tableau #{dir_move}"
+        end
         
     end
 
