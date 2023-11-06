@@ -68,12 +68,6 @@ module Move_game
                 end
             end
         end
-        if @area1[row][@x] == win
-            @x = col
-        end
-        if @area1[row][@x] == goal
-            @x = col
-        end
     end
 
     def right_move_push(player,wall,block,goal,void,win)
