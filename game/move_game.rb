@@ -9,7 +9,7 @@ module Move_game
             when obj_move["r"]
                 @x = col_player
                 @x += 1
-                
+                check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 return_move_wall(axe["x"],row_player,col_player,wall,axe)
             when obj_move["l"]
                 @x = col_player
