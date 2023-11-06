@@ -117,6 +117,7 @@ class Main < Gosu::Window
       end
     end
   end
+  
   def draw_font_win
     if @count_block == @point_win
       @bool = false
