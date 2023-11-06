@@ -42,7 +42,7 @@ module Move_game
         end
     end
 
-    def check_collision(row,col,wall,block,goal,void,win)
+    def check_collision(row,col,wall,block,goal,void,win,obj_move,dir_move)
         @area1.each_index do |y|
             @area1[y].each_index do |x|
                 if @area1[y][x] == block
