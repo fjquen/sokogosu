@@ -39,28 +39,24 @@ class Main < Gosu::Window
        if @area1.empty?
         return @word_end
        else
-        #right_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
         move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["r"],AXE)
        end
     when Gosu::KB_LEFT,Gosu::GP_LEFT
        if @area1.empty?
         return @word_end
        else
-        #left_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
         move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["l"],AXE)
        end
     when Gosu::KB_UP,Gosu::GP_UP
        if @area1.empty?
         return @word_end
        else
-        #up_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
         move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["u"],AXE)
        end
     when Gosu::KB_DOWN,Gosu::GP_DOWN
        if @area1.empty?
         return @word_end
        else
-        #down_move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN)
         move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE)
        end
     when Gosu::KB_R
@@ -117,7 +113,7 @@ class Main < Gosu::Window
       end
     end
   end
-  
+
   def draw_font_win
     if @count_block == @point_win
       @bool = false
