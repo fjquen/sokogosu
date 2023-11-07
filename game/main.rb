@@ -89,9 +89,7 @@ class Main < Gosu::Window
   def draw
     draw_area()
     draw_font_win()
-    if @bool
-      @font.draw_text("Nombre d'objectif atteint : #{@point_win}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
-    end
+    draw_font_goal()
   end
 
   def draw_area
@@ -120,6 +118,12 @@ class Main < Gosu::Window
       Gosu.draw_rect(100, 190, 400, 50, Gosu::Color::WHITE)
       @font.draw_text("#{@word_end} les #{@point_win} blocs sont arrivés", 130, 205, 0, 1, 1, Gosu::Color::BLACK)
       @area1.clear
+    end
+  end
+
+  def draw_font_goal
+    if @bool
+      @font.draw_text("Nombre d'objectif atteint : #{@point_win}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
     end
   end
 end
