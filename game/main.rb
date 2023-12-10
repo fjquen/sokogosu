@@ -28,7 +28,7 @@ class Main < Gosu::Window
   end
 
   def update
-    
+
   end
 
   def button_down(id)
