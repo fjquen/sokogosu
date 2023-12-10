@@ -89,7 +89,7 @@ class Main < Gosu::Window
   def draw
     draw_area()
     draw_font_win()
-    draw_font_goal()
+    draw_font_goal() 
   end
 
   def draw_area
