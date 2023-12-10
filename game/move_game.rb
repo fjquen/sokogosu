@@ -61,7 +61,7 @@ module Move_game
                                         puts "Valeur inconnu"
                                end
                                 
-                                if @area1[y][@x_push] == block && @area1[y][x] == block
+                                if @area1[y][@x_push] == wall && @area1[y][x] == block
                                     @x = col
                                 end
                                 if @area1[y][@x_push] == goal
@@ -93,7 +93,7 @@ module Move_game
                                 else
                                     puts "Valeur inconnu"
                             end
-                            if @area1[@y_push][x] == block && @area1[y][x] == block
+                            if @area1[@y_push][x] == wall && @area1[y][x] == block
                                 @y = row
                             end
                             if @area1[@y_push][x] == goal
