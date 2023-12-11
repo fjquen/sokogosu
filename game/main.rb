@@ -7,6 +7,9 @@ class Main < Gosu::Window
   include Move_game
   include Constant
 
+  # The `initialize` method is a special method in Ruby classes that is automatically called when a
+  # new instance of the class is created. In this case, the `initialize` method is defining the
+  # initial state of the `Main` class.
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,false
     self.caption = 'sokogosu'
@@ -31,6 +34,8 @@ class Main < Gosu::Window
 
   end
 
+  # The `button_down` method is a callback method in the Gosu library that is called whenever a button
+  # is pressed. It takes an `id` parameter that represents the ID of the button that was pressed.
   def button_down(id)
     case id
     when Gosu::KB_ESCAPE
@@ -87,12 +92,17 @@ class Main < Gosu::Window
     end
   end
 
+  ##
+  # The function "draw" is used to draw an area, a font for winning, and a font for the goal.
   def draw
     draw_area()
     draw_font_win()
     draw_font_goal() 
   end
 
+ ##
+ # The `draw_area` function is used to draw different colored rectangles on a grid based on the values
+ # in the `@area1` array.
   def draw_area
     @area1.each_index do |y|
       @area1[y].each_index do |x|
@@ -113,6 +123,9 @@ class Main < Gosu::Window
     end
   end
 
+ ##
+ # The function `draw_font_win` checks if the count of blocks is equal to the point to win, and if so,
+ # it displays a message on the screen.
   def draw_font_win
     if @count_block == @point_win
       @bool = false

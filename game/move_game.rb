@@ -1,4 +1,29 @@
 module Move_game
+    ##
+    # The function `move_push` takes in various parameters and moves the player in a specified
+    # direction while checking for collisions with walls, blocks, goals, voids, and wins.
+    # 
+    # Args:
+    #   player: The "player" parameter represents the current position of the player in the game. It
+    # could be a coordinate or an object representing the player's position.
+    #   wall: The "wall" parameter represents the position of walls in the game area. It is used to
+    # check for collisions between the player and walls.
+    #   block: The "block" parameter represents the position of the blocks in the game area. It is
+    # used to check for collisions between the player and the blocks when moving.
+    #   goal: The "goal" parameter represents the position of the goal in the game. It is used to
+    # check if the player has reached the goal and won the game.
+    #   void: The "void" parameter is likely a representation of empty spaces or areas in the game. It
+    # could be used to determine if the player can move into a certain position or if there are any
+    # obstacles in that position.
+    #   win: The "win" parameter is used to determine the winning condition of the game. It represents
+    # the goal or destination that the player needs to reach in order to win the game.
+    #   obj_move: The obj_move parameter is a hash that contains the possible movement directions. The
+    # keys of the hash represent the direction (e.g., "r" for right, "l" for left, "u" for up, "d" for
+    # down), and the values represent the corresponding movement object.
+    #   dir_move: The `dir_move` parameter represents the direction in which the player wants to move.
+    # It can have one of the following values: "r" (right), "l" (left), "u" (up), or "d" (down).
+    #   axe: The `axe` parameter is a hash that contains the coordinates of the axe object. It has two
+    # keys: "x" and "y", which represent the x and y coordinates of the axe respectively.
     def move_push(player,wall,block,goal,void,win,obj_move,dir_move,axe)
         pos_row_player = @area1.flatten.index(player)
         pos_col_player = @area1.first.size
@@ -32,6 +57,24 @@ module Move_game
         
     end
 
+    ##
+    # The function `return_move_wall` takes in the direction of the axe, the row and column
+    # coordinates, the wall character, and the axe object, and swaps the position of the current cell
+    # with the cell adjacent to it in the direction of the axe, if there is no wall in between.
+    # 
+    # Args:
+    #   axe_direction: The parameter "axe_direction" represents the direction in which the axe is
+    # being swung. It can have two possible values: "x" or "y".
+    #   row: The row index of the current position in the area grid.
+    #   col: The `col` parameter represents the column index of the current position in the area grid.
+    #   wall: The "wall" parameter represents the value of the wall in the game area. It is used to
+    # check if the current position of the player is blocked by a wall before making a move.
+    #   axe: The parameter "axe" represents the direction of the axe. It can have two possible values:
+    # "x" or "y".
+    # 
+    # Returns:
+    #   The code is returning the updated position of the player after moving them to a new position
+    # adjacent to a wall.
     def return_move_wall(axe_direction,row,col,wall,axe)
         case axe_direction
             when axe["x"]
@@ -45,6 +88,28 @@ module Move_game
         end
     end
 
+    ##
+    # The function `check_collision` checks for collisions between objects in a game area and performs
+    # certain actions based on the type of collision.
+    # 
+    # Args:
+    #   row: The row parameter represents the current row position of the object in the game area.
+    #   col: The parameter "col" represents the column index of the current position in the area grid.
+    #   wall: The parameter "wall" represents the symbol used to represent walls in the game area.
+    #   block: The "block" parameter represents the symbol or value used to represent a block in the
+    # game area.
+    #   goal: The "goal" parameter represents the symbol for the goal in the game area.
+    #   void: The `void` parameter represents an empty space in the game area.
+    #   win: The "win" parameter represents the symbol or value that represents a winning position in
+    # the game.
+    #   obj_move: The `obj_move` parameter is a hash that maps string keys to integer values. It
+    # represents the possible movement directions for an object. The keys in the hash represent the
+    # direction (e.g., "r" for right, "l" for left, "u" for up, "d"
+    #   dir_move: The `dir_move` parameter represents the direction of movement. It can have the
+    # following values:
+    # 
+    # Returns:
+    #   The method does not explicitly return a value.
     def check_collision(row,col,wall,block,goal,void,win,obj_move,dir_move)
         @area1.each_index do |y|
             @area1[y].each_index do |x|
