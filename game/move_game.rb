@@ -104,7 +104,7 @@ module Move_game
     # the game.
     #   obj_move: The `obj_move` parameter is a hash that maps string keys to integer values. It
     # represents the possible movement directions for an object. The keys in the hash represent the
-    # direction (e.g., "r" for right, "l" for left, "u" for up, "d"
+    # direction (e.g., "r" for right, "l" for left, "u" for up, "d")
     #   dir_move: The `dir_move` parameter represents the direction of movement. It can have the
     # following values:
     # 
