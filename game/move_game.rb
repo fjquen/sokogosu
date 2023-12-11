@@ -58,7 +58,7 @@ module Move_game
                                     when obj_move["l"]
                                         @x_push -= 1
                                     else
-                                        puts "Valeur inconnu"
+                                        puts "Valeur inconnu #{@y_push}"
                                end
                                 
                                 if @area1[y][@x_push] == wall && @area1[y][x] == block
@@ -76,7 +76,7 @@ module Move_game
                                         when obj_move["l"]
                                             @x_push = x+1
                                         else
-                                            puts "Valeur inconnu"
+                                            puts "Valeur inconnu #{@y_push}"
                                     end
                                 end
                                 return if @area1[y][@x_push] == wall
@@ -91,7 +91,7 @@ module Move_game
                                 when obj_move["d"]
                                     @y_push += 1
                                 else
-                                    puts "Valeur inconnu"
+                                    puts "Valeur inconnu #{@y_push}"
                             end
                             if @area1[@y_push][x] == wall && @area1[y][x] == block
                                 @y = row
@@ -108,7 +108,7 @@ module Move_game
                                     when obj_move["d"]
                                         @y_push = y+1
                                     else
-                                        puts "Valeur inconnu"
+                                        puts "Valeur inconnu #{@y_push}"
                                 end
                             end
                             return if @area1[@y_push][x] == wall
@@ -134,7 +134,7 @@ module Move_game
                         @y = row
                     end
                 else
-                    puts "Valeur inconnu"
+                    puts "Valeur inconnu #{@y_push} et #{@x_push}"
             end         
     end
 end
