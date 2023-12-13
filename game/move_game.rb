@@ -24,7 +24,7 @@ module Move_game
     # It can have one of the following values: "r" (right), "l" (left), "u" (up), or "d" (down).
     #   axe: The `axe` parameter is a hash that contains the coordinates of the axe object. It has two
     # keys: "x" and "y", which represent the x and y coordinates of the axe respectively.
-    def move_push(player,wall,block,goal,void,win,obj_move,dir_move,axe)
+    def move_player_and_check_collisions(player,wall,block,goal,void,win,obj_move,dir_move,axe)
         pos_row_player = @area1.flatten.index(player)
         pos_col_player = @area1.first.size
         row_player = pos_row_player / pos_col_player
@@ -123,7 +123,7 @@ module Move_game
                                     when obj_move["l"]
                                         @x_push -= 1
                                     else
-                                        puts "Valeur inconnu #{@y_push}"
+                                        puts "Valeur inconnu dir_move @x_push #{@x_push}"
                                end
                                 
                                 if @area1[y][@x_push] == wall && @area1[y][x] == block
@@ -141,7 +141,7 @@ module Move_game
                                         when obj_move["l"]
                                             @x_push = x+1
                                         else
-                                            puts "Valeur inconnu #{@y_push}"
+                                            puts "Valeur inconnu win @x_push #{@x_push}"
                                     end
                                 end
                                 return if @area1[y][@x_push] == wall
@@ -156,7 +156,7 @@ module Move_game
                                 when obj_move["d"]
                                     @y_push += 1
                                 else
-                                    puts "Valeur inconnu #{@y_push}"
+                                    puts "Valeur inconnu @y_push #{@y_push}"
                             end
                             if @area1[@y_push][x] == wall && @area1[y][x] == block
                                 @y = row
@@ -173,7 +173,7 @@ module Move_game
                                     when obj_move["d"]
                                         @y_push = y+1
                                     else
-                                        puts "Valeur inconnu #{@y_push}"
+                                        puts "Valeur inconnu win @y_push  #{@y_push}"
                                 end
                             end
                             return if @area1[@y_push][x] == wall
@@ -199,7 +199,7 @@ module Move_game
                         @y = row
                     end
                 else
-                    puts "Valeur inconnu #{@y_push} et #{@x_push}"
+                    puts "Valeur inconnu dir_move #{@y_push} et #{@x_push}"
             end         
     end
 end

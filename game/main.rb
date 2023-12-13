@@ -43,25 +43,25 @@ class Main < Gosu::Window
        if @area1.empty?
         return @word_end
        else
-        move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["r"],AXE)
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["r"],AXE)
        end
     when Gosu::KB_LEFT,Gosu::GP_LEFT
        if @area1.empty?
         return @word_end
        else
-        move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["l"],AXE)
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["l"],AXE)
        end
     when Gosu::KB_UP,Gosu::GP_UP
        if @area1.empty?
         return @word_end
        else
-        move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["u"],AXE)
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["u"],AXE)
        end
     when Gosu::KB_DOWN,Gosu::GP_DOWN
        if @area1.empty?
         return @word_end
        else
-        move_push(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE)
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE)
        end
     when Gosu::KB_R
       arr = []
