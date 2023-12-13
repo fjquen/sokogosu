@@ -35,22 +35,22 @@ module Move_game
                 @x = col_player
                 @x += 1
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
-                return_move_wall(axe["x"],row_player,col_player,wall,axe)
+                move_object_with_axe(axe["x"],row_player,col_player,wall,axe)
             when obj_move["l"]
                 @x = col_player
                 @x -= 1
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
-                return_move_wall(axe["x"],row_player,col_player,wall,axe)
+                move_object_with_axe(axe["x"],row_player,col_player,wall,axe)
             when obj_move["u"]
                 @y = row_player
                 @y -= 1
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
-                return_move_wall(axe["y"],row_player,col_player,wall,axe)
+                move_object_with_axe(axe["y"],row_player,col_player,wall,axe)
             when obj_move["d"]
                 @y = row_player
                 @y += 1
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
-                return_move_wall(axe["y"],row_player,col_player,wall,axe)
+                move_object_with_axe(axe["y"],row_player,col_player,wall,axe)
             else
                 puts "mauvaise valeur objet #{dir_move}"
         end
@@ -58,7 +58,7 @@ module Move_game
     end
 
     ##
-    # The function `return_move_wall` takes in the direction of the axe, the row and column
+    # The function `move_object_with_axe` takes in the direction of the axe, the row and column
     # coordinates, the wall character, and the axe object, and swaps the position of the current cell
     # with the cell adjacent to it in the direction of the axe, if there is no wall in between.
     # 
@@ -75,7 +75,7 @@ module Move_game
     # Returns:
     #   The code is returning the updated position of the player after moving them to a new position
     # adjacent to a wall.
-    def return_move_wall(axe_direction,row,col,wall,axe)
+    def move_object_with_axe(axe_direction,row,col,wall,axe)
         case axe_direction
             when axe["x"]
                 return if @area1[row][@x] == wall
