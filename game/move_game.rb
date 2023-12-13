@@ -168,9 +168,9 @@ module Move_game
                             end
                             if @area1[@y_push][x] == win && @area1[y][x] == block
                                 case dir_move
-                                    when obj_move["u"]
-                                        @y_push = y-1
                                     when obj_move["d"]
+                                        @y_push = y-1
+                                    when obj_move["u"]
                                         @y_push = y+1
                                     else
                                         puts "Valeur inconnu win @y_push  #{@y_push}"
