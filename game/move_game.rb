@@ -123,7 +123,7 @@ module Move_game
                                     when obj_move["l"]
                                         @x_push -= 1
                                     else
-                                        puts "Valeur inconnu dir_move @x_push #{@x_push}"
+                                        @x_push = @x_push
                                end
                                 
                                 if @area1[y][@x_push] == wall && @area1[y][x] == block
@@ -141,7 +141,7 @@ module Move_game
                                         when obj_move["l"]
                                             @x_push = x+1
                                         else
-                                            puts "Valeur inconnu win @x_push #{@x_push}"
+                                            @x_push = @x_push
                                     end
                                 end
                                 return if @area1[y][@x_push] == wall
@@ -156,7 +156,7 @@ module Move_game
                                 when obj_move["d"]
                                     @y_push += 1
                                 else
-                                    puts "Valeur inconnu @y_push #{@y_push}"
+                                    @y_push = @y_push
                             end
                             if @area1[@y_push][x] == wall && @area1[y][x] == block
                                 @y = row
@@ -173,7 +173,7 @@ module Move_game
                                     when obj_move["u"]
                                         @y_push = y+1
                                     else
-                                        puts "Valeur inconnu win @y_push  #{@y_push}"
+                                        @y_push = @y_push
                                 end
                             end
                             return if @area1[@y_push][x] == wall
