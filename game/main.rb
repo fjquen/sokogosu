@@ -27,7 +27,6 @@ class Main < Gosu::Window
     @word_end = "Niveaux terminé"
     @bool = true
     @bool_draw_again = false
-    
   end
 
   def update
