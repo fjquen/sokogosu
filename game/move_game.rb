@@ -50,7 +50,7 @@ module Move_game
                 @y = row_player
                 @y += 1
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
-                move_object_with_axe(axe["y"],row_player,col_player,wall,axe)
+                move_object_with_axe(axe["y"],row_player,col_player,wall,axe) 
             else
                 puts "mauvaise valeur objet #{dir_move}"
         end
