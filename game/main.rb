@@ -104,20 +104,20 @@ class Main < Gosu::Window
  # in the `@area1` array.
   def draw_area
     @area1.each_index do |y|
-      @area1[y].each_index do |x|
-         if @area1[y][x] == WALL
-          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLUE)
-         elsif @area1[y][x] == VOID
-          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
-         elsif @area1[y][x] == PLAYER
-          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
-         elsif @area1[y][x] == BLOCK
-          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::RED)
-         elsif @area1[y][x] == GOAL
-          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GRAY)
-         elsif @area1[y][x] == WIN
-          Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GREEN)
-         end
+      @area1.each_index do |x|
+          if @area1[y][x] == WALL
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLUE)
+          elsif @area1[y][x] == VOID
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
+          elsif @area1[y][x] == PLAYER
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
+          elsif @area1[y][x] == BLOCK
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::RED)
+          elsif @area1[y][x] == GOAL
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GRAY)
+          elsif @area1[y][x] == WIN
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GREEN)
+          end
       end
     end
   end
