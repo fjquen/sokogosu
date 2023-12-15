@@ -20,6 +20,7 @@ class Main < Gosu::Window
     }
     @area1 = @arr
     @x = @y = 0
+    @x_scrolling = @y_scrolling = 0
     @x_push = @y_push = 0
     @count_block = @area1.flatten.count(BLOCK)
     @point_win = 0
