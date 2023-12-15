@@ -62,7 +62,6 @@ class Main < Gosu::Window
         return @word_end
        else
         move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE)
-        puts @area1.flatten.index(@y)
        end
     when Gosu::KB_R
       arr = []
