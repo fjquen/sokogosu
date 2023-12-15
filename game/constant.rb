@@ -11,6 +11,7 @@ module Constant
     VOID = " "
     GOAL = "*"
     WIN = "!"
+    TRAP = "$"
     MOVE = {"r"=>0,"l"=>1,"u"=>2,"d"=>3}
     AXE = {"x"=>0,"y"=>1}
 end
