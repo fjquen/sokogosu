@@ -20,6 +20,7 @@ class Main < Gosu::Window
     }
     @area1 = @arr
     @x = @y = 0
+    @camera_x = @camera_y = 0
     @x_push = @y_push = 0
     @count_block = @area1.flatten.count(BLOCK)
     @point_win = 0
@@ -106,17 +107,17 @@ class Main < Gosu::Window
     @area1.each_index do |y|
       @area1[y].each_index do |x|
           if @area1[y][x] == WALL
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLUE)
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLUE)
           elsif @area1[y][x] == VOID
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
           elsif @area1[y][x] == PLAYER
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
           elsif @area1[y][x] == BLOCK
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::RED)
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::RED)
           elsif @area1[y][x] == GOAL
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GRAY)
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GRAY)
           elsif @area1[y][x] == WIN
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GREEN)
+            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GREEN)
           end
       end
     end

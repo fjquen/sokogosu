@@ -49,6 +49,7 @@ module Move_game
             when obj_move["d"]
                 @y = row_player
                 @y += 1
+                @camera_y += 10
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["y"],row_player,col_player,wall,axe) 
             else
