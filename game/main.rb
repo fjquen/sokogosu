@@ -101,7 +101,7 @@ class Main < Gosu::Window
 
  ##
  # The `draw_area` function is used to draw different colored rectangles on a grid based on the values
- # in the `@area1` array.
+ # in the `@area1` array.HEIGHT_TILE-275
   def draw_area
     @area1.each_index do |y|
       @area1[y].each_index do |x|
