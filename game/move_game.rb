@@ -40,13 +40,17 @@ module Move_game
             when obj_move["l"]
                 @x = col_player
                 @x -= 1
-                @camera_x -= tile
+                if @camera_x>0
+                    @camera_x -= tile
+                end
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["x"],row_player,col_player,wall,axe)
             when obj_move["u"]
                 @y = row_player
                 @y -= 1
-                @camera_y -= tile
+                if @camera_y>0
+                    @camera_y -= tile
+                end
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["y"],row_player,col_player,wall,axe)
             when obj_move["d"]
@@ -208,6 +212,7 @@ module Move_game
     end
 
     def scrolling(y,x,widthTile, heighTile,camera_y,camera_x,blockColor, axe)
+        puts camera_y
         Gosu.draw_rect(x*widthTile - camera_x, y*heighTile - camera_y, widthTile, heighTile,blockColor)
     end
 end
