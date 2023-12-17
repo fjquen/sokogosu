@@ -34,7 +34,10 @@ module Move_game
             when obj_move["r"]
                 @x = col_player
                 @x += 1
-                @camera_x += tile
+                @wall_limit = @xlimit - @count_wall
+                if @camera_x <@wall_limit
+                    @camera_x += tile
+                end
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["x"],row_player,col_player,wall,axe)
             when obj_move["l"]
@@ -56,7 +59,11 @@ module Move_game
             when obj_move["d"]
                 @y = row_player
                 @y += 1
-                @camera_y += tile
+                @wall_limit = @ylimit - @count_wall
+                if @camera_y <@wall_limit
+                    @camera_y += tile
+                end
+                
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["y"],row_player,col_player,wall,axe) 
             else

@@ -28,6 +28,9 @@ class Main < Gosu::Window
     @word_end = "Niveaux terminé"
     @bool = true
     @bool_draw_again = false
+    @xlimit = @ylimit
+
+    @count_wall = @area1.flatten.count(WALL)
   end
 
   def update
@@ -107,6 +110,8 @@ class Main < Gosu::Window
   def draw_area
     @area1.each_index do |y|
       @area1[y].each_index do |x|
+          @ylimit = y*HEIGHT_TILE
+          @xlimit = x*WIDTH_TILE
           if @area1[y][x] == WALL
             scrolling(y,x,WIDTH_TILE,HEIGHT_TILE,@camera_y,@camera_x,Gosu::Color::BLUE,@axe)
           elsif @area1[y][x] == VOID
