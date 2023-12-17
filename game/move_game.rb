@@ -24,7 +24,7 @@ module Move_game
     # It can have one of the following values: "r" (right), "l" (left), "u" (up), or "d" (down).
     #   axe: The `axe` parameter is a hash that contains the coordinates of the axe object. It has two
     # keys: "x" and "y", which represent the x and y coordinates of the axe respectively.
-    def move_player_and_check_collisions(player,wall,block,goal,void,win,obj_move,dir_move,axe)
+    def move_player_and_check_collisions(player,wall,block,goal,void,win,obj_move,dir_move,axe,tile)
         pos_row_player = @area1.flatten.index(player)
         pos_col_player = @area1.first.size
         row_player = pos_row_player / pos_col_player
@@ -34,22 +34,25 @@ module Move_game
             when obj_move["r"]
                 @x = col_player
                 @x += 1
+                @camera_x += tile
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["x"],row_player,col_player,wall,axe)
             when obj_move["l"]
                 @x = col_player
                 @x -= 1
+                @camera_x -= tile
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["x"],row_player,col_player,wall,axe)
             when obj_move["u"]
                 @y = row_player
                 @y -= 1
+                @camera_y -= tile
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["y"],row_player,col_player,wall,axe)
             when obj_move["d"]
                 @y = row_player
                 @y += 1
-                @camera_y += 10
+                @camera_y += tile
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
                 move_object_with_axe(axe["y"],row_player,col_player,wall,axe) 
             else
@@ -202,5 +205,9 @@ module Move_game
                 else
                     puts "Valeur inconnu dir_move #{@y_push} et #{@x_push}"
             end         
+    end
+
+    def scrolling(y,x,widthTile, heighTile,camera_y,camera_x,blockColor, axe)
+        Gosu.draw_rect(x*widthTile - camera_x, y*heighTile - camera_y, widthTile, heighTile,blockColor)
     end
 end

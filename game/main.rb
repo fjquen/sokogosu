@@ -44,25 +44,25 @@ class Main < Gosu::Window
        if @area1.empty?
         return @word_end
        else
-        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["r"],AXE)
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["r"],AXE,WIDTH_TILE)
        end
     when Gosu::KB_LEFT,Gosu::GP_LEFT
        if @area1.empty?
         return @word_end
        else
-        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["l"],AXE)
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["l"],AXE,WIDTH_TILE)
        end
     when Gosu::KB_UP,Gosu::GP_UP
        if @area1.empty?
         return @word_end
        else
-        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["u"],AXE)
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["u"],AXE,HEIGHT_TILE)
        end
     when Gosu::KB_DOWN,Gosu::GP_DOWN
        if @area1.empty?
         return @word_end
        else
-        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE)
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE,HEIGHT_TILE)
        end
     when Gosu::KB_R
       arr = []
@@ -107,17 +107,17 @@ class Main < Gosu::Window
     @area1.each_index do |y|
       @area1[y].each_index do |x|
           if @area1[y][x] == WALL
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLUE)
+            scrolling(y,x,WIDTH_TILE,HEIGHT_TILE,@camera_y,@camera_x,Gosu::Color::BLUE,@axe)
           elsif @area1[y][x] == VOID
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
+            scrolling(y,x,WIDTH_TILE,HEIGHT_TILE,@camera_y,@camera_x,Gosu::Color::BLACK,@axe)
           elsif @area1[y][x] == PLAYER
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::WHITE)
+            scrolling(y,x,WIDTH_TILE,HEIGHT_TILE,@camera_y,@camera_x,Gosu::Color::WHITE,@axe)
           elsif @area1[y][x] == BLOCK
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::RED)
+            scrolling(y,x,WIDTH_TILE,HEIGHT_TILE,@camera_y,@camera_x,Gosu::Color::RED,@axe)
           elsif @area1[y][x] == GOAL
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GRAY)
+            scrolling(y,x,WIDTH_TILE,HEIGHT_TILE,@camera_y,@camera_x,Gosu::Color::GRAY,@axe)
           elsif @area1[y][x] == WIN
-            Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE - @camera_y, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::GREEN)
+            scrolling(y,x,WIDTH_TILE,HEIGHT_TILE,@camera_y,@camera_x,Gosu::Color::GREEN,@axe)
           end
       end
     end
