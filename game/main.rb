@@ -84,6 +84,7 @@ class Main < Gosu::Window
           @area1 = arr
           @bool = true
           @point_win = 0
+          @camera_x = @camera_y = 0
           @count_block = @area1.flatten.count(BLOCK)
         else
           close
