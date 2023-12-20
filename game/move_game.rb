@@ -29,13 +29,13 @@ module Move_game
         pos_col_player = @area1.first.size
         row_player = pos_row_player / pos_col_player
         col_player = pos_row_player % pos_col_player
-        
+        @wall_limit_x = @xlimit - @count_wall
+        @wall_limit_y = @ylimit - @count_wall
         case dir_move
             when obj_move["r"]
                 @x = col_player
                 @x += 1
-                @wall_limit = @xlimit - @count_wall
-                if @camera_x <@wall_limit
+                if @camera_x <@wall_limit_x
                     @camera_x += tile
                 end
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
@@ -43,8 +43,7 @@ module Move_game
             when obj_move["l"]
                 @x = col_player
                 @x -= 1
-
-                if @camera_x>0
+                if @camera_x>@wall_limit_x
                     @camera_x -= tile
                 end
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
@@ -52,7 +51,7 @@ module Move_game
             when obj_move["u"]
                 @y = row_player
                 @y -= 1
-                if @camera_y>0
+                if @camera_y>@wall_limit_y
                     @camera_y -= tile
                 end
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)
@@ -60,8 +59,7 @@ module Move_game
             when obj_move["d"]
                 @y = row_player
                 @y += 1
-                @wall_limit = @ylimit - @count_wall
-                if @camera_y <@wall_limit
+                if @camera_y <@wall_limit_y
                     @camera_y += tile
                 end
                 
