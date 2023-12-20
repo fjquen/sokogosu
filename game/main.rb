@@ -88,7 +88,7 @@ class Main < Gosu::Window
           @bool = true
           @point_win = 0
           @camera_x = @camera_y = 0
-          @count_block = @area1.flatten.count(PLAYER)
+          @count_block = @area1.flatten.count(WALL)
         else
           close
         end
