@@ -88,7 +88,7 @@ class Main < Gosu::Window
           @bool = true
           @point_win = 0
           @camera_x = @camera_y = 0
-          @count_block = @area1.flatten.count(BLOCK)
+          @count_block = @area1.flatten.count(PLAYER)
         else
           close
         end
@@ -110,8 +110,8 @@ class Main < Gosu::Window
   def draw_area
     @area1.each_index do |y|
       @area1[y].each_index do |x|
-          @ylimit = y*HEIGHT_TILE
-          @xlimit = x*WIDTH_TILE
+          @ylimit = @y*HEIGHT_TILE
+          @xlimit = @x*WIDTH_TILE
           if @area1[y][x] == WALL
             scrolling(y,x,WIDTH_TILE,HEIGHT_TILE,@camera_y,@camera_x,Gosu::Color::BLUE,@axe)
           elsif @area1[y][x] == VOID

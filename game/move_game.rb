@@ -43,6 +43,7 @@ module Move_game
             when obj_move["l"]
                 @x = col_player
                 @x -= 1
+
                 if @camera_x>0
                     @camera_x -= tile
                 end
