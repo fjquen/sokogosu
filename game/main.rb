@@ -20,7 +20,12 @@ class Main < Gosu::Window
     }
     @area1 = @arr
     @x = @y = 0
-    @camera_x = @camera_y = 0
+    pos_row_player = @area1.flatten.index(PLAYER)
+    pos_col_player = @area1.first.size
+    row_player = pos_row_player / pos_col_player
+    col_player = pos_row_player % pos_col_player
+    @camera_y = row_player * HEIGHT_TILE
+    @camera_x = col_player * WIDTH_TILE
     @x_push = @y_push = 0
     @count_block = @area1.flatten.count(BLOCK)
     @point_win = 0
@@ -33,7 +38,7 @@ class Main < Gosu::Window
   end
 
   def update
-      
+    
   end
 
   # The `button_down` method is a callback method in the Gosu library that is called whenever a button
