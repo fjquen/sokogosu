@@ -29,7 +29,6 @@ class Main < Gosu::Window
     @bool = true
     @bool_draw_again = false
     @xlimit = @ylimit
-
     @count_wall = @area1.flatten.count(WALL)
   end
 
