@@ -24,8 +24,8 @@ class Main < Gosu::Window
     pos_col_player = @area1.first.size
     row_player = pos_row_player / pos_col_player
     col_player = pos_row_player % pos_col_player
-    @camera_y = row_player * HEIGHT_TILE
-    @camera_x = col_player * WIDTH_TILE
+    @camera_y = row_player * HEIGHT_TILE - @area1.flatten.count(WALL)
+    @camera_x = col_player * WIDTH_TILE - @area1.flatten.count(WALL)
     @x_push = @y_push = 0
     @count_block = @area1.flatten.count(BLOCK)
     @point_win = 0
@@ -33,7 +33,7 @@ class Main < Gosu::Window
     @word_end = "Niveaux terminé"
     @bool = true
     @bool_draw_again = false
-    @xlimit = @ylimit
+    @xlimit = @ylimit = 0
     @count_wall = @area1.flatten.count(WALL)
   end
 
