@@ -143,11 +143,7 @@ module Move_game
                                 if @area1[y][@x_push] == wall && @area1[y][x] == block
                                     @x = col
                                 end
-                                if @area1[y][@x_push] == goal
-                                    @area1[y][@x_push] = void
-                                    @area1[y][x] = win
-                                    @point_win += 1
-                                end
+                                check_goal(goal,void,win,x,y)
                                 if @area1[y][@x_push] == win && @area1[y][x] == block
                                     case dir_move
                                         when obj_move["r"]
@@ -175,11 +171,7 @@ module Move_game
                             if @area1[@y_push][x] == wall && @area1[y][x] == block
                                 @y = row
                             end
-                            if @area1[@y_push][x] == goal
-                                @area1[@y_push][x] = void
-                                @area1[y][x] = win
-                                @point_win += 1
-                            end
+                            check_goal(goal,void,win,x,y)
                             if @area1[@y_push][x] == win && @area1[y][x] == block
                                 case dir_move
                                     when obj_move["d"]
@@ -197,24 +189,41 @@ module Move_game
                 end
             end
         end
-            case dir_move
-                when obj_move["r"], obj_move["l"]
-                    if @area1[row][@x] == win
-                        @x = col
-                    end
-                    if @area1[row][@x] == goal
-                        @x = col
-                    end
-                when obj_move["u"], obj_move["d"]
-                    if @area1[@y][col] == win
-                        @y = row
-                    end
-                    if @area1[@y][col] == goal
-                        @y = row
-                    end
-                else
-                    puts "Valeur inconnu dir_move #{@y_push} et #{@x_push}"
-            end         
+        dir_move_goal_win(dir_move, obj_move,col,row,win,goal)            
+    end
+
+
+    def dir_move_goal_win(dir_move, obj_move,col,row,win,goal)
+        case dir_move
+            when obj_move["r"], obj_move["l"]
+                if @area1[row][@x] == win
+                    @x = col
+                end
+                if @area1[row][@x] == goal
+                    @x = col
+                end
+            when obj_move["u"], obj_move["d"]
+                if @area1[@y][col] == win
+                    @y = row
+                end
+                if @area1[@y][col] == goal
+                    @y = row
+                end
+            else
+                puts "Valeur inconnu dir_move #{@y_push} et #{@x_push}"
+        end
+    end
+
+    def check_goal(goal,void,win,x,y)
+        if @area1[@y_push][x] == goal
+            @area1[@y_push][x] = void
+            @area1[y][x] = win
+            @point_win += 1
+        elsif @area1[y][@x_push] == goal
+            @area1[y][@x_push] = void
+            @area1[y][x] = win
+            @point_win += 1
+        end
     end
 
     def scrolling(y,x,widthTile, heighTile,camera_y,camera_x,blockColor, axe)
