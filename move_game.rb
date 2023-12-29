@@ -143,7 +143,7 @@ module Move_game
                                 if @area1[y][@x_push] == wall && @area1[y][x] == block
                                     @x = col
                                 end
-                                check_goal(goal,void,win,x,y)
+                                check_goal_x(goal,void,win,x,y)
                                 if @area1[y][@x_push] == win && @area1[y][x] == block
                                     case dir_move
                                         when obj_move["r"]
@@ -171,7 +171,7 @@ module Move_game
                             if @area1[@y_push][x] == wall && @area1[y][x] == block
                                 @y = row
                             end
-                            check_goal(goal,void,win,x,y)
+                            check_goal_y(goal,void,win,x,y)
                             if @area1[@y_push][x] == win && @area1[y][x] == block
                                 case dir_move
                                     when obj_move["d"]
@@ -214,12 +214,16 @@ module Move_game
         end
     end
 
-    def check_goal(goal,void,win,x,y)
+    def check_goal_y(goal,void,win,x,y)
         if @area1[@y_push][x] == goal
             @area1[@y_push][x] = void
             @area1[y][x] = win
             @point_win += 1
-        elsif @area1[y][@x_push] == goal
+        end
+    end
+
+    def check_goal_x(goal,void,win,x,y)
+        if @area1[y][@x_push] == goal
             @area1[y][@x_push] = void
             @area1[y][x] = win
             @point_win += 1
