@@ -194,23 +194,27 @@ module Move_game
 
 
     def dir_move_goal_win(dir_move, obj_move,col,row,win,goal)
-        case dir_move
-            when obj_move["r"], obj_move["l"]
-                if @area1[row][@x] == win
-                    @x = col
-                end
-                if @area1[row][@x] == goal
-                    @x = col
-                end
-            when obj_move["u"], obj_move["d"]
-                if @area1[@y][col] == win
-                    @y = row
-                end
-                if @area1[@y][col] == goal
-                    @y = row
-                end
-            else
-                puts "Valeur inconnu dir_move #{@y_push} et #{@x_push}"
+        begin
+            case dir_move
+                when obj_move["r"], obj_move["l"]
+                    if @area1[row][@x] == win
+                        @x = col
+                    end
+                    if @area1[row][@x] == goal
+                        @x = col
+                    end
+                when obj_move["u"], obj_move["d"]
+                    if @area1[@y][col] == win
+                        @y = row
+                    end
+                    if @area1[@y][col] == goal
+                        @y = row
+                    end
+                else
+                    
+            end
+        rescue => e
+            puts "Une exception est levé #{e}"
         end
     end
 
