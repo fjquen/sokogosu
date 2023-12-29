@@ -189,11 +189,11 @@ module Move_game
                 end
             end
         end
-        dir_move_goal_win(dir_move, obj_move,col,row,win,goal)            
+        block_move_goal_win(dir_move, obj_move,col,row,win,goal)            
     end
 
 
-    def dir_move_goal_win(dir_move, obj_move,col,row,win,goal)
+    def block_move_goal_win(dir_move, obj_move,col,row,win,goal)
         begin
             case dir_move
                 when obj_move["r"], obj_move["l"]
@@ -210,11 +210,9 @@ module Move_game
                     if @area1[@y][col] == goal
                         @y = row
                     end
-                else
-                    
             end
         rescue => e
-            puts "Une exception est levé #{e}"
+            puts "Une exception est levé dans dir_move_goal_win: #{e}"
         end
     end
 
