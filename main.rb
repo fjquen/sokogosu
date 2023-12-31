@@ -11,7 +11,7 @@ class Main < Gosu::Window
   # new instance of the class is created. In this case, the `initialize` method is defining the
   # initial state of the `Main` class.
   def initialize
-    super WIDTH_WINDOW, HEIGHT_WINDOW,false
+    super WIDTH_WINDOW, HEIGHT_WINDOW,true
     self.caption = 'sokogosu'
     @num_level = 0
     @arr=[]
