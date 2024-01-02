@@ -135,13 +135,13 @@ module Move_game
                                         @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
                             end
                     elsif @area1[@y][col] == block
-                        if col ==x && y==@y
-                            push_y(x,y,dir_move,obj_move,block,wall)
-                            set_win_y(goal,void,win,x,y)
-                            push_win_block_y(win,block,dir_move,obj_move,y,x)
-                            return if @area1[@y_push][x] == wall
-                                    @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
-                        end
+                            if col ==x && y==@y
+                                push_y(x,y,dir_move,obj_move,block,wall)
+                                set_win_y(goal,void,win,x,y)
+                                push_win_block_y(win,block,dir_move,obj_move,y,x)
+                                return if @area1[@y_push][x] == wall
+                                        @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
+                            end
                     end
                 end
             end
