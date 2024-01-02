@@ -130,50 +130,17 @@ module Move_game
                 if @area1[y][x] == block
                     if @area1[row][@x] == block
                             if row==y && x==@x
-                               @x_push = x
-                               case dir_move
-                                    when obj_move["r"]
-                                        @x_push += 1
-                                    when obj_move["l"]
-                                        @x_push -= 1
-                               end
-                                
-                                if @area1[y][@x_push] == wall && @area1[y][x] == block
-                                    @x = col
-                                end
+                                push_x(x,y,dir_move,obj_move,block,wall)
                                 set_win_x(goal,void,win,x,y)
-                                if @area1[y][@x_push] == win && @area1[y][x] == block
-                                    case dir_move
-                                        when obj_move["r"]
-                                            @x_push = x-1
-                                        when obj_move["l"]
-                                            @x_push = x+1
-                                    end
-                                end
+                                push_win_block_x(win,block,dir_move,obj_move,x,y)
                                 return if @area1[y][@x_push] == wall
                                         @area1[y][@x_push],@area1[y][x] = @area1[y][x],@area1[y][@x_push]
                             end
                     elsif @area1[@y][col] == block
                         if col ==x && y==@y
-                            @y_push = y
-                            case dir_move
-                                when obj_move["u"]
-                                    @y_push -= 1
-                                when obj_move["d"]
-                                    @y_push += 1
-                            end
-                            if @area1[@y_push][x] == wall && @area1[y][x] == block
-                                @y = row
-                            end
+                            push_y(x,y,dir_move,obj_move,block,wall)
                             set_win_y(goal,void,win,x,y)
-                            if @area1[@y_push][x] == win && @area1[y][x] == block
-                                case dir_move
-                                    when obj_move["d"]
-                                        @y_push = y-1
-                                    when obj_move["u"]
-                                        @y_push = y+1
-                                end
-                            end
+                            push_win_block_y(win,block,dir_move,obj_move,y,x)
                             return if @area1[@y_push][x] == wall
                                     @area1[@y_push][x],@area1[y][x] = @area1[y][x],@area1[@y_push][x]
                         end
@@ -221,6 +188,56 @@ module Move_game
             @area1[y][@x_push] = void
             @area1[y][x] = win
             @point_win += 1
+        end
+    end
+
+
+    def push_x(x,y,dir_move,obj_move,block,wall)
+        @x_push = x
+        case dir_move
+             when obj_move["r"]
+                 @x_push += 1
+             when obj_move["l"]
+                 @x_push -= 1
+        end
+         
+        if @area1[y][@x_push] == wall && @area1[y][x] == block
+            @x = col
+        end
+    end
+
+    def push_win_block_x(win,block,dir_move,obj_move,x,y)
+        if @area1[y][@x_push] == win && @area1[y][x] == block
+            case dir_move
+                when obj_move["r"]
+                    @x_push = x-1
+                when obj_move["l"]
+                    @x_push = x+1
+            end
+        end
+    end
+
+    def push_y(x,y,dir_move,obj_move,block,wall)
+        @y_push = y
+        case dir_move
+            when obj_move["u"]
+                @y_push -= 1
+            when obj_move["d"]
+                @y_push += 1
+        end
+        if @area1[@y_push][x] == wall && @area1[y][x] == block
+            @y = row
+        end
+    end
+
+    def push_win_block_y(win,block,dir_move,obj_move,y,x)
+        if @area1[@y_push][x] == win && @area1[y][x] == block
+            case dir_move
+                when obj_move["d"]
+                    @y_push = y-1
+                when obj_move["u"]
+                    @y_push = y+1
+            end
         end
     end
 
