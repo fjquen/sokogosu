@@ -97,8 +97,6 @@ module Move_game
             when axe["y"]
                 return if @area1[@y][col] == wall
                         @area1[row][col],@area1[@y][col] = @area1[@y][col],@area1[row][col]
-            else
-                puts "mauvaise valeur objet #{axe}"
         end
     end
 
