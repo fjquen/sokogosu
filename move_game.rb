@@ -204,17 +204,6 @@ module Move_game
         end
     end
 
-    def push_win_block_x(win,block,dir_move,obj_move,x,y)
-        if @area1[y][@x_push] == win && @area1[y][x] == block
-            case dir_move
-                when obj_move["r"]
-                    @x_push = x-1
-                when obj_move["l"]
-                    @x_push = x+1
-            end
-        end
-    end
-
     def push_y(x,y,dir_move,obj_move,block,wall)
         @y_push = y
         case dir_move
@@ -227,6 +216,19 @@ module Move_game
             @y = row
         end
     end
+
+    def push_win_block_x(win,block,dir_move,obj_move,x,y)
+        if @area1[y][@x_push] == win && @area1[y][x] == block
+            case dir_move
+                when obj_move["r"]
+                    @x_push = x-1
+                when obj_move["l"]
+                    @x_push = x+1
+            end
+        end
+    end
+
+    
 
     def push_win_block_y(win,block,dir_move,obj_move,y,x)
         if @area1[@y_push][x] == win && @area1[y][x] == block
