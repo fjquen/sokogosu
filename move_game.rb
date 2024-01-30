@@ -201,6 +201,13 @@ module Move_game
          
         if @area1[y][@x_push] == wall && @area1[y][x] == block
             @x = x - 1
+        elsif @area1[y][@x_push] == block && @area1[y][x] == block
+            case dir_move
+                when obj_move["r"]
+                    @x_push = x-1
+                when obj_move["l"]
+                    @x_push = x+1
+            end
         end
     end
 
@@ -214,6 +221,13 @@ module Move_game
         end
         if @area1[@y_push][x] == wall && @area1[y][x] == block
             @y = y+1
+        elsif @area1[@y_push][x] == block && @area1[y][x] == block
+            case dir_move
+                when obj_move["d"]
+                    @y_push = y-1
+                when obj_move["u"]
+                    @y_push = y+1
+            end
         end
     end
 
