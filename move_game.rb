@@ -200,7 +200,7 @@ module Move_game
         end
          
         if @area1[y][@x_push] == wall && @area1[y][x] == block
-            @x = col
+            @x = x - 1
         end
     end
 
@@ -213,7 +213,7 @@ module Move_game
                 @y_push += 1
         end
         if @area1[@y_push][x] == wall && @area1[y][x] == block
-            @y = row
+            @y = y+1
         end
     end
 
