@@ -3,8 +3,8 @@
 module Constant
     WIDTH_WINDOW = 660
     HEIGHT_WINDOW = 495
-    WIDTH_TILE = 55
-    HEIGHT_TILE = 55
+    WIDTH_TILE = 20
+    HEIGHT_TILE = 20
     PLAYER = "@"
     WALL = "#"
     BLOCK= "&"
