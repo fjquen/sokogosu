@@ -67,7 +67,7 @@ class Main < Gosu::Window
        end
     when Gosu::KB_DOWN,Gosu::GP_DOWN
        if @area1.empty?
-        return @word_endyrryeyreyey
+        return @word_end
        else
         move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE,HEIGHT_TILE)
        end
