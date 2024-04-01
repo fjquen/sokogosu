@@ -11,7 +11,7 @@ class Main < Gosu::Window
   # new instance of the class is created. In this case, the `initialize` method is defining the
   # initial state of the `Main` class.
   def initialize
-    super WIDTH_WINDOW, HEIGHT_WINDOW,true
+    super WIDTH_WINDOW, HEIGHT_WINDOW,true,100
     self.caption = 'sokogosu'
     @num_level = 0
     @arr=[]
@@ -38,7 +38,37 @@ class Main < Gosu::Window
   end
 
   def update
-    
+    if Gosu.button_down? Gosu::KB_RIGHT or Gosu.button_down? Gosu::GP_RIGHT
+      if @area1.empty?
+        return @word_end
+      else
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["r"],AXE,WIDTH_TILE)
+      end
+    end
+
+    if Gosu.button_down? Gosu::KB_LEFT or Gosu.button_down? Gosu::GP_LEFT
+      if @area1.empty?
+        return @word_end
+      else
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["l"],AXE,WIDTH_TILE)
+      end
+    end
+
+    if Gosu.button_down? Gosu::KB_UP or Gosu.button_down? Gosu::GP_UP
+      if @area1.empty?
+        return @word_end
+      else
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["u"],AXE,WIDTH_TILE)
+      end
+    end
+
+    if Gosu.button_down? Gosu::KB_DOWN or Gosu.button_down? Gosu::GP_DOWN
+      if @area1.empty?
+        return @word_end
+      else
+        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE,WIDTH_TILE)
+      end
+    end
   end
 
   # The `button_down` method is a callback method in the Gosu library that is called whenever a button
@@ -47,30 +77,6 @@ class Main < Gosu::Window
     case id
     when Gosu::KB_ESCAPE
       close
-    when Gosu::KB_RIGHT,Gosu::GP_RIGHT
-       if @area1.empty?
-        return @word_end
-       else
-        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["r"],AXE,WIDTH_TILE)
-       end
-    when Gosu::KB_LEFT,Gosu::GP_LEFT
-       if @area1.empty?
-        return @word_end
-       else
-        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["l"],AXE,WIDTH_TILE)
-       end
-    when Gosu::KB_UP,Gosu::GP_UP
-       if @area1.empty?
-        return @word_end
-       else
-        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["u"],AXE,HEIGHT_TILE)
-       end
-    when Gosu::KB_DOWN,Gosu::GP_DOWN
-       if @area1.empty?
-        return @word_end
-       else
-        move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE,HEIGHT_TILE)
-       end
     when Gosu::KB_R
       arr = []
       File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
@@ -79,7 +85,6 @@ class Main < Gosu::Window
       @area1 = arr
       @bool = true
       @point_win = 0
-      
     when Gosu::KB_A
       if @count_block == @point_win
         @num_level+=1
