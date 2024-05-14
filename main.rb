@@ -85,6 +85,12 @@ class Main < Gosu::Window
       @area1 = arr
       @bool = true
       @point_win = 0
+      pos_row_player = @area1.flatten.index(PLAYER)
+	  pos_col_player = @area1.first.size
+	  row_player = pos_row_player / pos_col_player
+	  col_player = pos_row_player % pos_col_player
+	  @camera_y = row_player * HEIGHT_TILE - @area1.flatten.count(WALL)
+	  @camera_x = col_player * WIDTH_TILE - @area1.flatten.count(WALL)
     when Gosu::KB_A
       if @count_block == @point_win
         @num_level+=1
