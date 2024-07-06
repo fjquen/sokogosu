@@ -1,5 +1,3 @@
-# The code is defining a Ruby module called `Constant`. Inside the module, there are several constants
-# defined:
 module Constant
     WIDTH_WINDOW = 660
     HEIGHT_WINDOW = 495
