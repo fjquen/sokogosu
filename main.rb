@@ -32,6 +32,9 @@ class Main < Gosu::Window
     @bool_draw_again = false
     @xlimit = @ylimit = 0
     @count_wall = @area1.flatten.count(WALL)
+    @direction
+    @move_push_y
+    @move_push_x
   end
 
   def update
@@ -65,6 +68,10 @@ class Main < Gosu::Window
       else
         move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE,WIDTH_TILE)
       end
+    end
+    if @direction == 0
+      @move_push_x+=5
+      @area1[@move_push_y][@move_push_x] = WALL
     end
   end
 
@@ -103,6 +110,16 @@ class Main < Gosu::Window
           close
         end
       end
+    when Gosu::KB_SPACE
+        pos_row_player = @area1.flatten.index(PLAYER)
+        pos_col_player = @area1.first.size
+        row_player = pos_row_player / pos_col_player
+        col_player = pos_row_player % pos_col_player
+        if @area1[row_player][col_player+1] == BLOCK
+            @move_push_x = col_player+1
+            @move_push_y = row_player
+            @direction = MOVE["r"]
+        end
     end
   end
 
