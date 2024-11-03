@@ -69,11 +69,9 @@ class Main < Gosu::Window
         move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE,WIDTH_TILE)
       end
     end
-    testo=0
-    if @direction == 0 and testo<4
-      testo+=1
-          @area1[@move_push_y][@move_push_x+testo] = BLOCK
-          
+    
+    if @direction == 0 and @area1[@move_push_y][@move_push_x+1]!= WALL
+          @area1[@move_push_y][@move_push_x+=1] = BLOCK
     end
   end
 
@@ -118,7 +116,7 @@ class Main < Gosu::Window
         row_player = pos_row_player / pos_col_player
         col_player = pos_row_player % pos_col_player
         if @area1[row_player][col_player+1] == BLOCK
-            @move_push_x = col_player+1
+            @move_push_x = col_player
             @move_push_y = row_player
             @direction = MOVE["r"]
         end
