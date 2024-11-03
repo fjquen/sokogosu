@@ -70,8 +70,8 @@ class Main < Gosu::Window
       end
     end
     if @direction == 0
-      @move_push_x+=5
-      @area1[@move_push_y][@move_push_x] = WALL
+          @move_push_x+=1
+          @area1[@move_push_y][@move_push_x] = BLOCK
     end
   end
 
