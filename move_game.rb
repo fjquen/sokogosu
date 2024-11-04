@@ -11,7 +11,7 @@ module Move_game
             when obj_move["r"]
                 @x = col_player
                 @x += 1
-                if @camera_x <@wall_limit_x
+                if @camera_x < @wall_limit_x
                     @camera_x += tile
                 end
                 check_collision(row_player,col_player,wall,block,goal,void,win,obj_move,dir_move)

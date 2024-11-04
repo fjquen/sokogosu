@@ -69,13 +69,6 @@ class Main < Gosu::Window
         move_player_and_check_collisions(PLAYER,WALL,BLOCK,GOAL,VOID,WIN,MOVE,MOVE["d"],AXE,WIDTH_TILE)
       end
     end
-    #éssayer de gréffer ces conditions sur move_game
-    # if @direction == 0 and @area1[@move_push_y][@move_push_x+1]!= WALL
-    #       @area1[@move_push_y][@move_push_x+=1] = BLOCK
-    #       if @area1[@move_push_y][@move_push_x+=1] == GOAL and @area1[@move_push_y][@move_push_x+1]!= WALL
-    #         @area1[@move_push_y][@move_push_x] = WIN
-    #       end
-    # end
   end
 
   def button_down(id)
@@ -114,15 +107,7 @@ class Main < Gosu::Window
         end
       end
     when Gosu::KB_SPACE
-        pos_row_player = @area1.flatten.index(PLAYER)
-        pos_col_player = @area1.first.size
-        row_player = pos_row_player / pos_col_player
-        col_player = pos_row_player % pos_col_player
-        if @area1[row_player][col_player+1] == BLOCK
-            @move_push_x = col_player
-            @move_push_y = row_player
-            @direction = MOVE["r"]
-        end
+        
     end
   end
 
