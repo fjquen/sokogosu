@@ -190,6 +190,10 @@ module Move_game
         end
     end
 
+    def push_space(player)
+        puts player
+    end
+
     def scrolling(y,x,widthTile, heighTile,camera_y,camera_x,blockColor, axe)
         Gosu.draw_rect(x*widthTile - camera_x, y*heighTile - camera_y, widthTile, heighTile,blockColor)
     end

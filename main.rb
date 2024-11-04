@@ -8,7 +8,7 @@ class Main < Gosu::Window
   include Constant
 
   def initialize
-    super WIDTH_WINDOW, HEIGHT_WINDOW,true,100
+    super WIDTH_WINDOW, HEIGHT_WINDOW,false,100
     self.caption = 'sokogosu'
     @num_level = 0
     @arr=[]
@@ -29,7 +29,7 @@ class Main < Gosu::Window
     @font = Gosu::Font.new(20)
     @word_end = "Niveaux terminé"
     @bool = true
-    @bool_draw_again = false
+    @bool_draw_again = @bool_move = false
     @xlimit = @ylimit = 0
     @count_wall = @area1.flatten.count(WALL)
     @direction
@@ -107,7 +107,7 @@ class Main < Gosu::Window
         end
       end
     when Gosu::KB_SPACE
-        
+      push_space(PLAYER)
     end
   end
 
