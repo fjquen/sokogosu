@@ -8,7 +8,7 @@ class Main < Gosu::Window
   include Constant
 
   def initialize
-    super WIDTH_WINDOW, HEIGHT_WINDOW,false,100
+    super WIDTH_WINDOW, HEIGHT_WINDOW,true,100
     self.caption = 'sokogosu'
     @num_level = 0
     @arr=[]
@@ -106,8 +106,6 @@ class Main < Gosu::Window
           close
         end
       end
-    when Gosu::KB_SPACE
-      push_space(PLAYER)
     end
   end
 
