@@ -36,7 +36,7 @@ class Main < Gosu::Window
     @move_push_y
     @move_push_x
     @start_time_ennemy = 0
-    @timeMove= 50
+    @timeMove= 70
   end
 
   def update
