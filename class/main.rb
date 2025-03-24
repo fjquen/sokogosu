@@ -1,18 +1,12 @@
-require 'gosu'
-require './move_game.rb'
-require './constant.rb'
-
-
 class Main < Gosu::Window
-  include Move_game
-  include Constant
+  
 
   def initialize
     super WIDTH_WINDOW, HEIGHT_WINDOW,true
     self.caption = 'sokogosu'
     @num_level = 0
     @arr=[]
-    File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
+    File.foreach(Dir.glob("./level/*txt")[@num_level]) { |line| 
         @arr<<line.split("")
     }
     @area1 = @arr
@@ -86,7 +80,7 @@ class Main < Gosu::Window
       close
     when Gosu::KB_R
       arr = []
-      File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
+      File.foreach(Dir.glob("./level/*txt")[@num_level]) { |line| 
         arr<<line.split("")
       }
       @area1 = arr
@@ -101,9 +95,9 @@ class Main < Gosu::Window
     when Gosu::KB_A
       if @count_block == @point_win
         @num_level+=1
-        if @num_level < Dir.glob("*txt").length
+        if @num_level < Dir.glob("./level/*txt").length
           arr = []
-          File.foreach(Dir.glob("*txt")[@num_level]) { |line| 
+          File.foreach(Dir.glob("./level/*txt")[@num_level]) { |line| 
             arr<<line.split("")
           }
           @area1 = arr
@@ -162,4 +156,4 @@ class Main < Gosu::Window
     end
   end
 end
-Main.new.show
+
