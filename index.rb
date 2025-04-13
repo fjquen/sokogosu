@@ -1,4 +1,6 @@
 require "gosu"
+
+
 dirname = Dir.entries(".")
 dirname.each do |folder|
     if folder != "index.rb" and folder != "." and folder != ".." and folder != ".git" and folder != "level" and folder != "README.md"
